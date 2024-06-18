@@ -1,0 +1,58 @@
+//
+//  TripCellView.swift
+//  MyTravel
+//
+//  Created by Владислав Соколов on 18.06.2024.
+//
+
+import SwiftUI
+
+struct TripCellView: View {
+    private let trip: Trip
+    
+    init(trip: Trip) {
+        self.trip = trip
+    }
+    
+    var body: some View {
+        ZStack {
+            CustomColors.customBlue
+            VStack(alignment: .leading) {
+                Text("Бюджет: \(trip.budget.formatted())")
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .background(.blue)
+                    .foregroundStyle(.white)
+                    .font(.system(size: 13))
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .padding([.leading, .top], 11)
+                HStack {
+                    Text(trip.name)
+                        .font(.title2)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.8)
+                        .foregroundStyle(.white)
+                    Spacer()
+                }
+                .padding(.all, 10)
+            }
+            .padding(.horizontal, 16)
+        }
+        .clipShape(RoundedRectangle(cornerRadius: 18))
+    }
+}
+
+#Preview {
+    TripCellView(
+        trip: Trip(
+            name: "Франция",
+            date: .now,
+            expense: [Expense(
+                name: "кофе",
+                expense: 4.49,
+                date: .now
+            )],
+            budget: 3000
+        )
+    )
+}
