@@ -21,12 +21,18 @@ struct MainView: View {
             
             FinancialTripView()
                 .tabItem {
-                    Image(systemName: "2.square.fill")
-                    Text("Second")
+                    Image(systemName: "airplane")
+                    Text("Trips")
                 }
                 .tag(2)
                 .toolbarBackground(.visible, for: .tabBar)
                 .toolbarBackground(.darkBlue.opacity(0.8), for: .tabBar)
+            
+            DestinationsListView()
+                .tabItem {
+                    Image(systemName: "globe")
+                    Text("Places")
+                }
         }
     }
 }

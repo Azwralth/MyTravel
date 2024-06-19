@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LaunchView: View {
     @ObservedObject var viewModel = LaunchViewModel()
+    @Environment(\.presentationMode) private var presentationMode
+    @Binding var showLaunchView: Bool
     
     var body: some View {
         ZStack {
@@ -19,6 +21,22 @@ struct LaunchView: View {
                     Image("photo_2")
                         .resizable()
                         .frame(width: geometry.size.width, height: geometry.size.height / 1.4)
+                        .overlay {
+                            VStack {
+                                HStack {
+                                    Spacer()
+                                    Button(action: {
+                                        presentationMode.wrappedValue.dismiss()
+                                    }) {
+                                        Image(systemName: "xmark")
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                            .foregroundStyle(.gray)
+                                    }
+                                }
+                                Spacer()
+                            }
+                        }
                     HStack {
                         Image(systemName: "circle")
                             .resizable()
@@ -64,5 +82,5 @@ struct LaunchView: View {
 
 
 #Preview {
-    LaunchView()
+    LaunchView(showLaunchView: .constant(true))
 }

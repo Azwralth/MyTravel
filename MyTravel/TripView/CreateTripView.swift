@@ -67,7 +67,6 @@ struct CreateTripView: View {
                                 .padding()
                         }
                     }
-                    
                 }
                 .padding(.leading, 20)
                 .frame(minHeight: 65)
@@ -81,7 +80,7 @@ struct CreateTripView: View {
                 
                 Button(action: {
                     if let budgetValue = Double(budget) {
-                        let newTrip = Trip(name: name, startDate: startDate, endDate: endDate, expense: [Expense(name: "шоколадка", expense: 14, date: Date.now)], budget: budgetValue)
+                        let newTrip = Trip(name: name, startDate: startDate, endDate: endDate, budget: budgetValue)
                         modelContext.insert(newTrip)
                         presentationMode.wrappedValue.dismiss()
                     }

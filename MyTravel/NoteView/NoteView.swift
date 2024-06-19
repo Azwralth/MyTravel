@@ -15,36 +15,49 @@ struct NoteView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                List {
-                    ForEach(notes) { note in
-                        NavigationLink {
-                            DetailNoteView(note: note)
-                        } label: {
-                            NoteCellView(note: note)
-                        }
-                        .listRowSeparator(.hidden)
-                        .listRowBackground(CustomColors.darkBlue)
-                        .listRowInsets(EdgeInsets())
+            VStack {
+                if notes.isEmpty {
+                    ZStack {
+                        Color(CustomColors.darkBlue)
+                            .ignoresSafeArea()
+                        Text("Нет доступных заметок.")
+                            .foregroundColor(.gray)
+                            .font(.headline)
                     }
-                    .onDelete(perform: deleteNotes)
+                    .padding(.top, 65)
+                    .ignoresSafeArea()
+                } else {
+                    List {
+                        ForEach(notes) { note in
+                            NavigationLink {
+                                DetailNoteView(note: note)
+                            } label: {
+                                NoteCellView(note: note)
+                            }
+                            .listRowSeparator(.hidden)
+                            .listRowBackground(CustomColors.darkBlue)
+                            .listRowInsets(EdgeInsets())
+                        }
+                        .onDelete(perform: deleteNotes)
+                    }
+                    .listRowSpacing(8)
+                    .listStyle(.insetGrouped)
+                    .scrollContentBackground(.hidden)
+                    .padding(.leading, -5)
                 }
-                .listRowSpacing(8)
-                .listStyle(.insetGrouped)
-                .scrollContentBackground(.hidden)
-                .navigationBarTitleTextColor(.white)
-                .background(.darkBlue)
-                .navigationTitle("Notes")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        EditButton()
-                    }
-                    ToolbarItem {
-                        Button(action: {
-                            showCreateNoteView = true
-                        }) {
-                            Label("Add Note", systemImage: "plus.circle.fill")
-                        }
+            }
+            .navigationBarTitleTextColor(.white)
+            .background(.darkBlue)
+            .navigationTitle("Notes")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+                ToolbarItem {
+                    Button(action: {
+                        showCreateNoteView = true
+                    }) {
+                        Label("Добавить заметку", systemImage: "plus.circle.fill")
                     }
                 }
             }

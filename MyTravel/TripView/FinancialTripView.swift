@@ -17,37 +17,41 @@ struct FinancialTripView: View {
         NavigationStack {
             ZStack {
                 ScrollView {
-                    LazyVGrid(columns: [
-                        GridItem(.adaptive(minimum: 200)),
-                        GridItem(.adaptive(minimum: 200))
-                    ], spacing: 11) {
-                        ForEach(trips) { trip in
-                            NavigationLink {
-                                DetailTripView(trip: trip)
-                            } label: {
-                                TripCellView(trip: trip)
-                            }
-                            .listRowSeparator(.hidden)
-                            .listRowBackground(CustomColors.darkBlue)
-                            .listRowInsets(EdgeInsets())
-                        }
-                    }
-                    .padding([.leading, .trailing], 10)
-                    
-                    .toolbar {
-                        ToolbarItem {
-                            Button(action: {
-                                showCreateTripView = true
-                            }) {
-                                Label("Add Trip", systemImage: "plus.circle.fill")
+                    if trips.isEmpty {
+                        Color.darkBlue
+                            .ignoresSafeArea()
+                            .overlay(
+                                Text("Нет доступных путешествий")
+                                    .foregroundColor(.gray)
+                                    .font(.headline)
+                            )
+                            .padding(.top, 300)
+                    } else {
+                        LazyVGrid(columns: [GridItem(.fixed(170), spacing: 20), GridItem(.fixed(170))], spacing: 15) {
+                            ForEach(trips) { trip in
+                                NavigationLink(destination: DetailTripView(trip: trip)) {
+                                    TripCellView(trip: trip)
+                                        .listRowSeparator(.hidden)
+                                        .listRowBackground(CustomColors.darkBlue)
+                                        .listRowInsets(EdgeInsets())
+                                }
                             }
                         }
                     }
                 }
                 .scrollContentBackground(.hidden)
                 .navigationBarTitleTextColor(.white)
-                .background(.darkBlue)
+                .background(Color.darkBlue)
                 .navigationTitle("Trips")
+                .toolbar {
+                    ToolbarItem {
+                        Button(action: {
+                            showCreateTripView = true
+                        }) {
+                            Label("Add Trip", systemImage: "plus.circle.fill")
+                        }
+                    }
+                }
             }
             .fullScreenCover(isPresented: $showCreateTripView) {
                 CreateTripView()
@@ -64,6 +68,9 @@ struct FinancialTripView: View {
     }
 }
 
-#Preview {
-    FinancialTripView()
+struct FinancialTripView_Previews: PreviewProvider {
+    static var previews: some View {
+        FinancialTripView()
+    }
 }
+

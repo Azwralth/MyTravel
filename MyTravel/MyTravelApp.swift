@@ -14,7 +14,9 @@ struct MyTravelApp: App {
         let schema = Schema([
             Item.self,
             Note.self,
-            Trip.self
+            Trip.self,
+            MTPlacemark.self,
+            Destination.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

@@ -9,9 +9,13 @@ import SwiftUI
 
 struct ExpenseCellView: View {
     private let expense: Expense
+    private let visible: Bool
+    private let action: () -> Void
     
-    init(expense: Expense) {
+    init(expense: Expense, visible: Bool, action: @escaping () -> Void) {
         self.expense = expense
+        self.visible = visible
+        self.action = action
     }
     
     var body: some View {
@@ -19,13 +23,19 @@ struct ExpenseCellView: View {
             CustomColors.customBlue
             VStack {
                 HStack {
-//                    Spacer()
                     Text("\(formattedDate(expense.date))")
                         .font(.system(size: 12))
                         .foregroundStyle(.gray)
                         .padding(.leading, -3)
                         .padding(.top, 20)
                     Spacer()
+                    Button(action: action) {
+                        Image(systemName: "trash")
+                            .foregroundStyle(.gray)
+                            .padding(.top, 20)
+                            .opacity(visible ? 1 : 0)
+                    }
+                    .disabled(visible ? false : true)
                 }
                 HStack {
                     Text(expense.name)
@@ -37,12 +47,14 @@ struct ExpenseCellView: View {
                     Spacer()
                 }
                 
-                Text("-\(expense.expense.formatted())")
-                    .foregroundStyle(.red)
-                    .font(.system(size: 30))
-                    .padding(.bottom, 20)
-                    .padding(.leading, -70)
+                HStack {
+                    Text("-\(expense.expense.formatted())")
+                        .foregroundStyle(.red)
+                        .font(.system(size: 30))
+                        .padding(.bottom, 20)
                     .padding(.top, 10)
+                    Spacer()
+                }
             }
             .padding(.horizontal, 20)
         }
@@ -58,5 +70,5 @@ struct ExpenseCellView: View {
 }
 
 #Preview {
-    ExpenseCellView(expense: Expense(name: "шоколадка", expense: 150, date: .now))
+    ExpenseCellView(expense: Expense(name: "шоколадка", expense: 150, date: .now), visible: false, action: {})
 }

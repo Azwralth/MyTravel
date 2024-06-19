@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct DetailTripView: View {
+    @Environment(\.modelContext) private var modelContext
     @State private var showingAlert = false
     @State private var expenseName = ""
     @State private var expenseAmount = ""
     @State private var expenseDate = Date()
+    @State private var visible = false
     
-    private let trip: Trip
+    private var trip: Trip
     
     init(trip: Trip) {
         self.trip = trip
@@ -41,18 +43,19 @@ struct DetailTripView: View {
                 }
                 Text("Остаток \(currentBalanceTrip())")
                     .foregroundStyle(.gray)
-                    .font(.system(size: 10))
+                    .font(.system(size: 14))
                     .padding(.leading, 2)
                     .padding(.bottom, 20)
                 
                 ScrollView {
-                    LazyVGrid(columns: [GridItem(.fixed(170)), GridItem(.fixed(170))]) {
-                        ForEach(trip.expense) { expense in
-                            ExpenseCellView(expense: expense)
+                    LazyVGrid(columns: [GridItem(.fixed(170), spacing: 15), GridItem(.fixed(170))], spacing: 15) {
+                        ForEach(trip.expense ?? []) { expense in
+                            ExpenseCellView(expense: expense, visible: visible) {
+                                deleteExpense(expense)
+                            }
                         }
                     }
                 }
-                .padding(.leading, -10)
                 .scrollIndicators(.hidden)
                 
                 Spacer()
@@ -62,10 +65,17 @@ struct DetailTripView: View {
             .navigationBarTitleTextColor(.white)
             .toolbar {
                 ToolbarItem {
+                    Button {
+                        visible.toggle()
+                    } label: {
+                        Text(visible ? "Done" : "Edit")
+                    }
+                }
+                ToolbarItem {
                     Button(action: {
                         showingAlert.toggle()
                     }) {
-                        Label("Add Note", systemImage: "plus.circle.fill")
+                        Label("Add expense", systemImage: "plus.circle.fill")
                     }
                 }
             }
@@ -88,8 +98,8 @@ struct DetailTripView: View {
     
     private func currentBalanceTrip() -> String {
         let totalBudget = trip.budget
-        let totalExpenses = trip.expense.reduce(0.0) { $0 + $1.expense }
-        let currentBalance = totalBudget - totalExpenses
+        let totalExpenses = trip.expense?.reduce(0.0) { $0 + $1.expense }
+        let currentBalance = totalBudget - (totalExpenses ?? 0)
         return String(format: "%.2f", currentBalance)
     }
     
@@ -97,9 +107,27 @@ struct DetailTripView: View {
         withAnimation {
             guard let amount = Double(expenseAmount) else { return }
             let newExpense = Expense(name: expenseName, expense: amount, date: Date())
-            trip.expense.append(newExpense)
+            trip.expense?.append(newExpense)
             expenseName = ""
             expenseAmount = ""
+        }
+    }
+    
+    private func deleteExpense(_ expense: Expense) {
+        withAnimation {
+            if let index = trip.expense?.firstIndex(of: expense) {
+                trip.expense?.remove(at: index)
+                modelContext.delete(expense)
+                saveContext()
+            }
+        }
+    }
+    
+    private func saveContext() {
+        do {
+            try modelContext.save()
+        } catch {
+            print("Ошибка при сохранении контекста: \(error)")
         }
     }
 }

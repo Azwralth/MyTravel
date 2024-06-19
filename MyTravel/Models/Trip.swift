@@ -13,16 +13,17 @@ final class Trip {
     let name: String
     let startDate: Date
     let endDate: Date
-    var expense: [Expense]
+    var expense: [Expense]?
     let budget: Double
     
-    init(name: String, startDate: Date, endDate: Date, expense: [Expense], budget: Double) {
+    init(name: String, startDate: Date, endDate: Date, expense: [Expense]? = nil, budget: Double) {
         self.name = name
         self.startDate = startDate
         self.endDate = endDate
         self.expense = expense
         self.budget = budget
     }
+    
 }
 
 @Model
