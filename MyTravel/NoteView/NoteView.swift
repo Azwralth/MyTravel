@@ -20,11 +20,18 @@ struct NoteView: View {
                     ZStack {
                         Color(CustomColors.darkBlue)
                             .ignoresSafeArea()
-                        Text("Нет доступных заметок.")
-                            .foregroundColor(.gray)
-                            .font(.headline)
+                        VStack {
+                            Text("Нет доступных заметок")
+                                .foregroundColor(.gray)
+                                .font(.title2).bold()
+                                .padding(.bottom, 10)
+                            Text("Нажмите на \(Image(systemName: "plus.circle.fill")), чтобы начать")
+                                .foregroundColor(.gray)
+                                .font(.headline)
+                        }
+                        .padding()
                     }
-                    .padding(.top, 65)
+                    .padding(.top, 58)
                     .ignoresSafeArea()
                 } else {
                     List {

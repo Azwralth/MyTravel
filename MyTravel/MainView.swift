@@ -10,29 +10,25 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TabView {
-            NoteView()
-                .tabItem {
-                    Image(systemName: "note")
-                    Text("Notes")
-                }
-                .tag(1)
-                .toolbarBackground(.visible, for: .tabBar)
-                .toolbarBackground(.darkBlue.opacity(0.8), for: .tabBar)
-            
-            FinancialTripView()
-                .tabItem {
-                    Image(systemName: "airplane")
-                    Text("Trips")
-                }
-                .tag(2)
-                .toolbarBackground(.visible, for: .tabBar)
-                .toolbarBackground(.darkBlue.opacity(0.8), for: .tabBar)
-            
-            DestinationsListView()
-                .tabItem {
-                    Image(systemName: "globe")
-                    Text("Places")
-                }
+            Group {
+                NoteView()
+                    .tabItem {
+                        Image(systemName: "note")
+                        Text("Notes")
+                    }
+                FinancialTripView()
+                    .tabItem {
+                        Image(systemName: "airplane")
+                        Text("Trips")
+                    }
+                DestinationsListView()
+                    .tabItem {
+                        Image(systemName: "globe")
+                        Text("Places")
+                    }
+            }
+            .toolbarBackground(.visible, for: .tabBar)
+            .toolbarBackground(.darkBlue.opacity(0.8), for: .tabBar)
         }
     }
 }

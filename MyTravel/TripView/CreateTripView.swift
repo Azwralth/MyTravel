@@ -32,6 +32,7 @@ struct CreateTripView: View {
                         isValid = !newValue.isEmpty && !budget.isEmpty
                     }
                     .padding(.horizontal)
+                    .padding(.top, 30)
                     .padding(.bottom, 105)
                 
                 CustomTextField(text: $budget, field: "Budget")
@@ -93,7 +94,6 @@ struct CreateTripView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .opacity(!isValid ? 0.3 : 1)
                 .disabled(!isValid)
-                .padding(.horizontal)
             }
             .navigationTitle("New Trip")
             .navigationBarTitleTextColor(.white)

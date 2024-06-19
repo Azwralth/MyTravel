@@ -19,11 +19,17 @@ struct FinancialTripView: View {
                 ScrollView {
                     if trips.isEmpty {
                         Color.darkBlue
-                            .ignoresSafeArea()
                             .overlay(
-                                Text("Нет доступных путешествий")
-                                    .foregroundColor(.gray)
-                                    .font(.headline)
+                                VStack {
+                                    Text("Нет доступных путешествий")
+                                        .foregroundColor(.gray)
+                                        .font(.title2).bold()
+                                        .padding(.bottom, 10)
+                                    Text("Нажмите на \(Image(systemName: "plus.circle.fill")), чтобы начать")
+                                        .foregroundColor(.gray)
+                                        .font(.headline)
+                                }
+                                    .padding()
                             )
                             .padding(.top, 300)
                     } else {
@@ -31,9 +37,6 @@ struct FinancialTripView: View {
                             ForEach(trips) { trip in
                                 NavigationLink(destination: DetailTripView(trip: trip)) {
                                     TripCellView(trip: trip)
-                                        .listRowSeparator(.hidden)
-                                        .listRowBackground(CustomColors.darkBlue)
-                                        .listRowInsets(EdgeInsets())
                                 }
                             }
                         }
