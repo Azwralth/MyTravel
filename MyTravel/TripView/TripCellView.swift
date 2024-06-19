@@ -17,42 +17,37 @@ struct TripCellView: View {
     var body: some View {
         ZStack {
             CustomColors.customBlue
-            VStack(alignment: .leading) {
-                Text("Бюджет: \(trip.budget.formatted())")
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 5)
-                    .background(.blue)
-                    .foregroundStyle(.white)
-                    .font(.system(size: 13))
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                    .padding([.leading, .top], 11)
+            VStack {
                 HStack {
+                    Spacer()
                     Text(trip.name)
                         .font(.title2)
-                        .lineLimit(1)
+                        .lineLimit(0)
                         .minimumScaleFactor(0.8)
                         .foregroundStyle(.white)
+                        .padding()
                     Spacer()
                 }
-                .padding(.all, 10)
+                Text("\(formattedDate(trip.startDate)) - \(formattedDate(trip.endDate))")
+                    .foregroundStyle(.white)
+                    .lineLimit(0)
+                .minimumScaleFactor(0.8)
+                    .font(.system(size: 12))
+                Spacer()
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 20)
         }
+        .frame(width: 175, height: 100)
         .clipShape(RoundedRectangle(cornerRadius: 18))
+    }
+    
+    private func formattedDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        return formatter.string(from: date)
     }
 }
 
 #Preview {
-    TripCellView(
-        trip: Trip(
-            name: "Франция",
-            date: .now,
-            expense: [Expense(
-                name: "кофе",
-                expense: 4.49,
-                date: .now
-            )],
-            budget: 3000
-        )
-    )
+    TripCellView(trip: Trip(name: "Франция", startDate: .now, endDate: .distantFuture, expense: [Expense(name: "coffe", expense: 12, date: .now)], budget: 3000))
 }

@@ -90,23 +90,6 @@ struct CreateNoteView: View {
     }
 }
 
-struct CustomTextField: View {
-    @Binding var text: String
-    var field: String
-    
-    var body: some View {
-        TextField(text: $text) {
-            Text(field)
-                .foregroundStyle(.gray)
-        }
-        .padding(.leading, 20)
-        .frame(minHeight: 65)
-        .foregroundStyle(.white)
-        .overlay(RoundedRectangle(cornerRadius: 20).stroke(.gray, lineWidth: 1))
-        .padding(.vertical, 4)
-    }
-}
-
 enum Field {
     case name
     case detail

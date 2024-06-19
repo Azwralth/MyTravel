@@ -19,7 +19,7 @@ struct MainView: View {
                 .toolbarBackground(.visible, for: .tabBar)
                 .toolbarBackground(.darkBlue.opacity(0.8), for: .tabBar)
             
-            LaunchView()
+            FinancialTripView()
                 .tabItem {
                     Image(systemName: "2.square.fill")
                     Text("Second")

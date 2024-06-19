@@ -8,59 +8,62 @@
 import SwiftUI
 import SwiftData
 
-//struct FinancialTripView: View {
-//    @Query private var trips: [Trip]
-//
-//    var body: some View {
-//        NavigationStack {
-//            ZStack {
-//                List {
-//                    ForEach(trips) { trip in
-//                        NavigationLink {
-//                            Text(trip.name)
-//                        } label: {
-//                            NoteCellView(note: note)
-//                        }
-//                        .listRowSeparator(.hidden)
-//                        .listRowBackground(CustomColors.darkBlue)
-//                        .listRowInsets(EdgeInsets())
-//                    }
-//                    .onDelete(perform: deleteNotes)
-//                }
-//                .listRowSpacing(8)
-//                .listStyle(.insetGrouped)
-//                .scrollContentBackground(.hidden)
-//                .navigationBarTitleTextColor(.white)
-//                .background(.darkBlue)
-//                .navigationTitle("Notes")
-//                .toolbar {
-//                    ToolbarItem(placement: .navigationBarTrailing) {
-//                        EditButton()
-//                    }
-//                    ToolbarItem {
-//                        Button(action: {
-//                            showCreateNoteView = true
-//                        }) {
-//                            Label("Add Note", systemImage: "plus.circle.fill")
-//                        }
-//                    }
-//                }
-//            }
-//            .fullScreenCover(isPresented: $showCreateNoteView) {
-//                CreateNoteView()
-//            }
-//        }
-//    }
-//
-//    private func deleteNotes(offsets: IndexSet) {
-//        withAnimation {
-//            for index in offsets {
-//                modelContext.delete(notes[index])
-//            }
-//        }
-//    }
-//}
-//
-//#Preview {
-//    FinancialTripView()
-//}
+struct FinancialTripView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query private var trips: [Trip]
+    @State private var showCreateTripView = false
+    
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                ScrollView {
+                    LazyVGrid(columns: [
+                        GridItem(.adaptive(minimum: 200)),
+                        GridItem(.adaptive(minimum: 200))
+                    ], spacing: 11) {
+                        ForEach(trips) { trip in
+                            NavigationLink {
+                                DetailTripView(trip: trip)
+                            } label: {
+                                TripCellView(trip: trip)
+                            }
+                            .listRowSeparator(.hidden)
+                            .listRowBackground(CustomColors.darkBlue)
+                            .listRowInsets(EdgeInsets())
+                        }
+                    }
+                    .padding([.leading, .trailing], 10)
+                    
+                    .toolbar {
+                        ToolbarItem {
+                            Button(action: {
+                                showCreateTripView = true
+                            }) {
+                                Label("Add Trip", systemImage: "plus.circle.fill")
+                            }
+                        }
+                    }
+                }
+                .scrollContentBackground(.hidden)
+                .navigationBarTitleTextColor(.white)
+                .background(.darkBlue)
+                .navigationTitle("Trips")
+            }
+            .fullScreenCover(isPresented: $showCreateTripView) {
+                CreateTripView()
+            }
+        }
+    }
+    
+    private func deleteTrip(offsets: IndexSet) {
+        withAnimation {
+            for index in offsets {
+                modelContext.delete(trips[index])
+            }
+        }
+    }
+}
+
+#Preview {
+    FinancialTripView()
+}
