@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		762AD6F82C22C75800118943 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762AD6F72C22C75800118943 /* CustomTextField.swift */; };
 		762AD6FB2C22D8AD00118943 /* ExpenseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */; };
+		764CD1352C23A77700A188C6 /* DefaultContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764CD1342C23A77700A188C6 /* DefaultContentView.swift */; };
 		76744A152C21D27E0031D99A /* MyTravelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A142C21D27E0031D99A /* MyTravelApp.swift */; };
 		76744A192C21D27E0031D99A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A182C21D27E0031D99A /* Item.swift */; };
 		76744A1B2C21D27F0031D99A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76744A1A2C21D27F0031D99A /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		762AD6F72C22C75800118943 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCellView.swift; sourceTree = "<group>"; };
+		764CD1342C23A77700A188C6 /* DefaultContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultContentView.swift; sourceTree = "<group>"; };
 		76744A112C21D27E0031D99A /* MyTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76744A142C21D27E0031D99A /* MyTravelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTravelApp.swift; sourceTree = "<group>"; };
 		76744A182C21D27E0031D99A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				76744A1C2C21D27F0031D99A /* Preview Content */,
 				76744A412C21D4410031D99A /* Extension */,
 				76B81E4E2C232B7D003B9B20 /* Services */,
+				764CD1342C23A77700A188C6 /* DefaultContentView.swift */,
 			);
 			path = MyTravel;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				76B81E552C232BFA003B9B20 /* DestinationsListView.swift in Sources */,
 				76744A2F2C21D2FB0031D99A /* CreateNoteView.swift in Sources */,
 				76744A372C21D3460031D99A /* LaunchView.swift in Sources */,
+				764CD1352C23A77700A188C6 /* DefaultContentView.swift in Sources */,
 				76B81E5E2C234C27003B9B20 /* DestinationCellView.swift in Sources */,
 				76744A3D2C21D37A0031D99A /* Trip.swift in Sources */,
 				76B81E502C232B99003B9B20 /* LocationManager.swift in Sources */,

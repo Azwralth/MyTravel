@@ -40,8 +40,6 @@ struct DetailNoteView: View {
             }
             .padding()
             .navigationTitle(note.name)
-            .navigationBarTitleTextColor(.white)
-            
         }
     }
 }

@@ -20,16 +20,7 @@ struct FinancialTripView: View {
                     if trips.isEmpty {
                         Color.darkBlue
                             .overlay(
-                                VStack {
-                                    Text("Нет доступных путешествий")
-                                        .foregroundColor(.gray)
-                                        .font(.title2).bold()
-                                        .padding(.bottom, 10)
-                                    Text("Нажмите на \(Image(systemName: "plus.circle.fill")), чтобы начать")
-                                        .foregroundColor(.gray)
-                                        .font(.headline)
-                                }
-                                    .padding()
+                                DefaultContentView(name: "Нет доступных путешествий")
                             )
                             .padding(.top, 300)
                     } else {

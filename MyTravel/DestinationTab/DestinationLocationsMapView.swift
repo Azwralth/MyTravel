@@ -10,19 +10,25 @@ import MapKit
 import SwiftData
 
 struct DestinationLocationsMapView: View {
-    @Environment(\.modelContext) private var modelContext
     @State private var cameraPosition: MapCameraPosition = .automatic
     @State private var visibleRegion: MKCoordinateRegion?
     @State private var searchText = ""
-    @FocusState private var searchFieldFocus: Bool
-    @Query(filter: #Predicate<MTPlacemark> {$0.destination == nil}) private var searchPlacemarks: [MTPlacemark]
-    private var listPlacemarks: [MTPlacemark] {
-        searchPlacemarks + destination.placemarks
-    }
-    var destination: Destination
     @State private var isManualMarker = false
     
     @State private var selectedPlacemark: MTPlacemark?
+    @Environment(\.modelContext) private var modelContext
+    
+    @FocusState private var searchFieldFocus: Bool
+    @Query(filter: #Predicate<MTPlacemark> {$0.destination == nil})
+    private var searchPlacemarks: [MTPlacemark]
+    var destination: Destination
+    
+    private var listPlacemarks: [MTPlacemark] {
+        searchPlacemarks + destination.placemarks
+    }
+    
+    
+    
     var body: some View {
         @Bindable var destination = destination
         VStack {
@@ -99,7 +105,7 @@ struct DestinationLocationsMapView: View {
                 destination: destination,
                 selectedPlacemark: selectedPlacemark
             )
-                .presentationDetents([.height(450)])
+            .presentationDetents([.height(450)])
         }
         .safeAreaInset(edge: .bottom) {
             VStack {
@@ -119,6 +125,7 @@ struct DestinationLocationsMapView: View {
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.never)
                             .focused($searchFieldFocus)
+                            .clipShape(RoundedRectangle(cornerRadius: 14))
                             .overlay(alignment: .trailing) {
                                 if searchFieldFocus {
                                     Button {
@@ -160,7 +167,7 @@ struct DestinationLocationsMapView: View {
         }
         .navigationTitle("Destination")
         .navigationBarTitleDisplayMode(.inline)
-        .onMapCameraChange(frequency: .onEnd){ context in
+        .onMapCameraChange(frequency: .onEnd) { context in
             visibleRegion = context.region
         }
         .onAppear {

@@ -31,7 +31,7 @@ struct TripCellView: View {
                 Text("\(formattedDate(trip.startDate)) - \(formattedDate(trip.endDate))")
                     .foregroundStyle(.white)
                     .lineLimit(0)
-                .minimumScaleFactor(0.8)
+                    .minimumScaleFactor(0.8)
                     .font(.system(size: 12))
                 Spacer()
             }

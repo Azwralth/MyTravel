@@ -18,21 +18,22 @@ struct DestinationCellView: View {
         ZStack {
             CustomColors.customBlue
                 HStack {
-                    Image(systemName: "globe")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .foregroundStyle(.blue)
                     VStack(alignment: .leading) {
-                        Text("123")
-                            .foregroundStyle(.white)
-                            .font(.title3)
+                        Text(destination.name)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .background(.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(16)
                         Text("^[\(destination.placemarks.count) location](inflect: true)")
                             .font(.system(size: 17))
                             .foregroundStyle(.white)
+
                     }
+                    Spacer()
                 }
+                .padding()
         }
-        .frame(width: 180, height: 100)
         .clipShape(RoundedRectangle(cornerRadius: 18))
         
         
@@ -40,5 +41,5 @@ struct DestinationCellView: View {
 }
 
 #Preview {
-    DestinationCellView(destination: Destination(name: ""))
+    DestinationCellView(destination: Destination(name: "Russia"))
 }

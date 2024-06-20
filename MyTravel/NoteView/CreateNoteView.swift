@@ -17,7 +17,7 @@ struct CreateNoteView: View {
     @State private var isValid = false
     
     let rows: [GridItem] = [
-        GridItem(.fixed(20))
+        GridItem(.fixed(30))
     ]
     
     var body: some View {
@@ -50,14 +50,14 @@ struct CreateNoteView: View {
                     .padding(.trailing, 35)
                 }
                 .scrollIndicators(.hidden)
-                .padding(.bottom, 105)
+                .padding(.bottom, 90)
                 
                 CustomTextField(text: $detail, field: Field.detail.title)
                     .onChange(of: detail) { _, newValue in
                         isValid = !newValue.isEmpty && !name.isEmpty
                     }
                     .padding(.horizontal)
-                    .padding(.top, -105)
+                    .padding(.top, -90)
                 
                 Spacer()
                 
@@ -77,7 +77,6 @@ struct CreateNoteView: View {
                 .padding(.horizontal)
             }
             .navigationTitle(Field.mainTitle.title)
-            .navigationBarTitleTextColor(.white)
             .background(.darkBlue)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

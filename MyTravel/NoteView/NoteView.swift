@@ -17,22 +17,15 @@ struct NoteView: View {
         NavigationStack {
             VStack {
                 if notes.isEmpty {
-                    ZStack {
-                        Color(CustomColors.darkBlue)
-                            .ignoresSafeArea()
-                        VStack {
-                            Text("Нет доступных заметок")
-                                .foregroundColor(.gray)
-                                .font(.title2).bold()
-                                .padding(.bottom, 10)
-                            Text("Нажмите на \(Image(systemName: "plus.circle.fill")), чтобы начать")
-                                .foregroundColor(.gray)
-                                .font(.headline)
+                    ScrollView {
+                        ZStack {
+                            Color(CustomColors.darkBlue)
+                                .ignoresSafeArea()
+                            DefaultContentView(name: "Нет доступных заметок")
                         }
-                        .padding()
+                        .padding(.top, 250)
+                        .ignoresSafeArea()
                     }
-                    .padding(.top, 58)
-                    .ignoresSafeArea()
                 } else {
                     List {
                         ForEach(notes) { note in
@@ -44,8 +37,14 @@ struct NoteView: View {
                             .listRowSeparator(.hidden)
                             .listRowBackground(CustomColors.darkBlue)
                             .listRowInsets(EdgeInsets())
+                            .swipeActions(edge: .trailing) {
+                                Button(role: .destructive) {
+                                    modelContext.delete(note)
+                                } label: {
+                                    Label("", systemImage: "trash")
+                                }
+                            }
                         }
-                        .onDelete(perform: deleteNotes)
                     }
                     .listRowSpacing(8)
                     .listStyle(.insetGrouped)
@@ -53,13 +52,10 @@ struct NoteView: View {
                     .padding(.leading, -5)
                 }
             }
-            .navigationBarTitleTextColor(.white)
             .background(.darkBlue)
             .navigationTitle("Notes")
+            .navigationBarTitleTextColor(.white)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
                 ToolbarItem {
                     Button(action: {
                         showCreateNoteView = true
@@ -70,14 +66,6 @@ struct NoteView: View {
             }
             .fullScreenCover(isPresented: $showCreateNoteView) {
                 CreateNoteView()
-            }
-        }
-    }
-    
-    private func deleteNotes(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(notes[index])
             }
         }
     }

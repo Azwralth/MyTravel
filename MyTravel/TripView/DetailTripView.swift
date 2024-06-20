@@ -62,7 +62,6 @@ struct DetailTripView: View {
             }
             .padding()
             .navigationTitle(trip.name)
-            .navigationBarTitleTextColor(.white)
             .toolbar {
                 ToolbarItem {
                     Button {
