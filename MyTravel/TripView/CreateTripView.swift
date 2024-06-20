@@ -27,7 +27,7 @@ struct CreateTripView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                CustomTextField(text: $name, field: Field.name.title)
+                CustomTextField(text: $name, field: "Name")
                     .onChange(of: name) { _, newValue in
                         isValid = !newValue.isEmpty && !budget.isEmpty
                     }
@@ -86,7 +86,7 @@ struct CreateTripView: View {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }) {
-                    Text(Field.add.title)
+                    Text("Add")
                 }
                 .frame(width: 350, height: 60)
                 .background(.blue)

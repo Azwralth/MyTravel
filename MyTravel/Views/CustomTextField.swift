@@ -25,5 +25,5 @@ struct CustomTextField: View {
 }
 
 #Preview {
-    CustomTextField(text: .constant("123"), field: Field.add.title)
+    CustomTextField(text: .constant("123"), field: "Add")
 }

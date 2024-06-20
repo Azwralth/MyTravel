@@ -42,11 +42,17 @@ struct DestinationsListView: View {
                     .scrollContentBackground(.hidden)
                     .background(.darkBlue)
                 } else {
-                    Color.darkBlue
-                        .overlay(
+                    VStack {
+                        Spacer()
+                        ZStack {
+                            Color(CustomColors.darkBlue)
+                                .ignoresSafeArea()
                             DefaultContentView(name: "Нет доступных путешествий")
-                        )
-                        .ignoresSafeArea()
+                                .offset(y: 200)
+                        }
+                        Spacer()
+                    }
+                    .ignoresSafeArea()
                 }
             }
             .navigationTitle("My Destinations")
@@ -73,7 +79,6 @@ struct DestinationsListView: View {
                     } message: {
                         Text("Create a new destination")
                     }
-
             }
         }
     }

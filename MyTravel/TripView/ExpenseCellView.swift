@@ -9,12 +9,10 @@ import SwiftUI
 
 struct ExpenseCellView: View {
     private let expense: Expense
-    private let visible: Bool
     private let action: () -> Void
     
-    init(expense: Expense, visible: Bool, action: @escaping () -> Void) {
+    init(expense: Expense, action: @escaping () -> Void) {
         self.expense = expense
-        self.visible = visible
         self.action = action
     }
     
@@ -33,9 +31,7 @@ struct ExpenseCellView: View {
                         Image(systemName: "trash")
                             .foregroundStyle(.gray)
                             .padding(.top, 20)
-                            .opacity(visible ? 1 : 0)
                     }
-                    .disabled(visible ? false : true)
                 }
                 HStack {
                     Text(expense.name)
@@ -70,5 +66,5 @@ struct ExpenseCellView: View {
 }
 
 #Preview {
-    ExpenseCellView(expense: Expense(name: "шоколадка", expense: 150, date: .now), visible: false, action: {})
+    ExpenseCellView(expense: Expense(name: "шоколадка", expense: 150, date: .now), action: {})
 }

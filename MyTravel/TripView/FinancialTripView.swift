@@ -15,21 +15,26 @@ struct FinancialTripView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
+            VStack {
                 ScrollView {
-                    if trips.isEmpty {
-                        Color.darkBlue
-                            .overlay(
-                                DefaultContentView(name: "Нет доступных путешествий")
-                            )
-                            .padding(.top, 300)
-                    } else {
+                    if !trips.isEmpty {
                         LazyVGrid(columns: [GridItem(.fixed(170), spacing: 20), GridItem(.fixed(170))], spacing: 15) {
                             ForEach(trips) { trip in
                                 NavigationLink(destination: DetailTripView(trip: trip)) {
                                     TripCellView(trip: trip)
                                 }
                             }
+                        }
+                    } else {
+                        VStack {
+                            Spacer()
+                            ZStack {
+                                Color(CustomColors.darkBlue)
+                                    .ignoresSafeArea()
+                                DefaultContentView(name: "Нет доступных путешествий")
+                                    .offset(y: 200)
+                            }
+                            Spacer()
                         }
                     }
                 }
@@ -62,9 +67,7 @@ struct FinancialTripView: View {
     }
 }
 
-struct FinancialTripView_Previews: PreviewProvider {
-    static var previews: some View {
-        FinancialTripView()
-    }
+#Preview {
+    FinancialTripView()
 }
 

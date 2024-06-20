@@ -18,14 +18,21 @@ struct NoteCellView: View {
         ZStack {
             CustomColors.customBlue
             VStack(alignment: .leading) {
-                Text(note.annotation.title)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 5)
-                    .background(.blue)
-                    .foregroundStyle(.white)
-                    .font(.system(size: 13))
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                HStack {
+                    Text(note.annotation.title)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background(.blue)
+                        .foregroundStyle(.white)
+                        .font(.system(size: 13))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
                     .padding([.leading, .top], 11)
+                    Spacer()
+                    Text(note.date.formatted())
+                        .font(.system(size: 14))
+                        .foregroundStyle(.gray)
+                        .offset(y: 5)
+                }
                 HStack {
                     Text(note.name)
                         .font(.title2)
@@ -43,5 +50,5 @@ struct NoteCellView: View {
 }
 
 #Preview {
-    NoteCellView(note: Note(name: "name", detail: "detail", annotation: Annotation.hotel))
+    NoteCellView(note: Note(name: "name", detail: "detail", annotation: Annotation.hotel, date: .now, image: nil))
 }

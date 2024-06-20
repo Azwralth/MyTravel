@@ -16,17 +16,7 @@ struct NoteView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                if notes.isEmpty {
-                    ScrollView {
-                        ZStack {
-                            Color(CustomColors.darkBlue)
-                                .ignoresSafeArea()
-                            DefaultContentView(name: "Нет доступных заметок")
-                        }
-                        .padding(.top, 250)
-                        .ignoresSafeArea()
-                    }
-                } else {
+                if !notes.isEmpty {
                     List {
                         ForEach(notes) { note in
                             NavigationLink {
@@ -50,6 +40,20 @@ struct NoteView: View {
                     .listStyle(.insetGrouped)
                     .scrollContentBackground(.hidden)
                     .padding(.leading, -5)
+                    
+                } else {
+                    ScrollView {
+                        VStack {
+                            Spacer()
+                            ZStack {
+                                Color(CustomColors.darkBlue)
+                                    .ignoresSafeArea()
+                                DefaultContentView(name: "Нет доступных заметок")
+                                    .offset(y: 200)
+                            }
+                            Spacer()
+                        }
+                    }
                 }
             }
             .background(.darkBlue)

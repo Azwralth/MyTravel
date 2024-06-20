@@ -9,11 +9,12 @@ import SwiftUI
 
 struct DetailTripView: View {
     @Environment(\.modelContext) private var modelContext
-    @State private var showingAlert = false
+    @State private var showingAddAlert = false
+    @State private var showingDeleteExpenseAlert = false
     @State private var expenseName = ""
     @State private var expenseAmount = ""
     @State private var expenseDate = Date()
-    @State private var visible = false
+    @State private var expenseToDelete: Expense?
     
     private var trip: Trip
     
@@ -50,11 +51,23 @@ struct DetailTripView: View {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.fixed(170), spacing: 15), GridItem(.fixed(170))], spacing: 15) {
                         ForEach(trip.expense ?? []) { expense in
-                            ExpenseCellView(expense: expense, visible: visible) {
-                                deleteExpense(expense)
+                            ExpenseCellView(expense: expense) {
+                                expenseToDelete = expense
+                                showingDeleteExpenseAlert.toggle()
                             }
                         }
                     }
+                }
+                .alert(isPresented: $showingDeleteExpenseAlert) {
+                    Alert(
+                        title: Text("Удалить трату?"),
+                        primaryButton: .destructive(Text("Удалить")) {
+                            if let expense = expenseToDelete {
+                                deleteExpense(expense)
+                            }
+                        },
+                        secondaryButton: .cancel(Text("Отмена"))
+                    )
                 }
                 .scrollIndicators(.hidden)
                 
@@ -64,21 +77,14 @@ struct DetailTripView: View {
             .navigationTitle(trip.name)
             .toolbar {
                 ToolbarItem {
-                    Button {
-                        visible.toggle()
-                    } label: {
-                        Text(visible ? "Done" : "Edit")
-                    }
-                }
-                ToolbarItem {
                     Button(action: {
-                        showingAlert.toggle()
+                        showingAddAlert.toggle()
                     }) {
                         Label("Add expense", systemImage: "plus.circle.fill")
                     }
                 }
             }
-            .alert("Create new expense", isPresented: $showingAlert, actions: {
+            .alert("Create new expense", isPresented: $showingAddAlert, actions: {
                 TextField("Expense Name", text: $expenseName)
                 TextField("Expense Amount", text: $expenseAmount)
                     .keyboardType(.decimalPad)
@@ -89,6 +95,7 @@ struct DetailTripView: View {
             })
         }
     }
+    
     private func formattedDate(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
@@ -109,6 +116,7 @@ struct DetailTripView: View {
             trip.expense?.append(newExpense)
             expenseName = ""
             expenseAmount = ""
+            saveContext()
         }
     }
     
