@@ -16,41 +16,53 @@ struct FinancialTripView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                ScrollView {
-                    if !trips.isEmpty {
-                        LazyVGrid(columns: [GridItem(.fixed(170), spacing: 20), GridItem(.fixed(170))], spacing: 15) {
-                            ForEach(trips) { trip in
-                                NavigationLink(destination: DetailTripView(trip: trip)) {
-                                    TripCellView(trip: trip)
+                if !trips.isEmpty {
+                    List {
+                        ForEach(trips) { trip in
+                            NavigationLink {
+                                DetailTripView(trip: trip)
+                            } label: {
+                                TripCellView(trip: trip)
+                            }
+                            .listRowSeparator(.hidden)
+                            .listRowBackground(CustomColors.darkBlue)
+                            .listRowInsets(EdgeInsets())
+                            .swipeActions(edge: .trailing) {
+                                Button(role: .destructive) {
+                                    modelContext.delete(trip)
+                                } label: {
+                                    Image(systemName: "trash")
                                 }
                             }
                         }
-                    } else {
-                        VStack {
-                            Spacer()
-                            DefaultContentView(name: "Нет доступных путешествий")
-                                .offset(y: 200)
-                            Spacer()
-                        }
                     }
-                }
-                .scrollContentBackground(.hidden)
-                .navigationBarTitleTextColor(.white)
-                .background(.darkBlue)
-                .navigationTitle("Trips")
-                .toolbar {
-                    ToolbarItem {
-                        Button(action: {
-                            showCreateTripView = true
-                        }) {
-                            Image(systemName: "plus.circle.fill")
-                        }
+                    .listRowSpacing(8)
+                    .listStyle(.insetGrouped)
+                    .scrollContentBackground(.hidden)
+                    .padding(.leading, -5)
+                } else {
+                    VStack {
+                        Spacer()
+                        DefaultContentView(name: "Нет доступных путешествий")
+                            .offset(y: 200)
+                        Spacer()
                     }
                 }
             }
-            .fullScreenCover(isPresented: $showCreateTripView) {
-                CreateTripView()
+            .background(.darkBlue)
+            .navigationTitle("Trips")
+            .toolbar {
+                ToolbarItem {
+                    Button(action: {
+                        showCreateTripView = true
+                    }) {
+                        Image(systemName: "plus.circle.fill")
+                    }
+                }
             }
+        }
+        .fullScreenCover(isPresented: $showCreateTripView) {
+            CreateTripView()
         }
     }
     
@@ -62,6 +74,7 @@ struct FinancialTripView: View {
         }
     }
 }
+
 
 #Preview {
     FinancialTripView()

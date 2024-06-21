@@ -17,27 +17,34 @@ struct TripCellView: View {
     var body: some View {
         ZStack {
             CustomColors.customBlue
-            VStack {
+            VStack(alignment: .leading) {
                 HStack {
+                    Text("Бюджет - \(trip.budget.formatted())")
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background(.blue)
+                        .foregroundStyle(.white)
+                        .font(.system(size: 13))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .padding([.leading, .top], 11)
                     Spacer()
+                    Text("\(formattedDate(trip.startDate)) - \(formattedDate(trip.endDate))")
+                        .font(.system(size: 14))
+                        .foregroundStyle(.gray)
+                        .offset(y: 5)
+                }
+                HStack {
                     Text(trip.name)
                         .font(.title2)
-                        .lineLimit(0)
+                        .lineLimit(1)
                         .minimumScaleFactor(0.8)
                         .foregroundStyle(.white)
-                        .padding()
                     Spacer()
                 }
-                Text("\(formattedDate(trip.startDate)) - \(formattedDate(trip.endDate))")
-                    .foregroundStyle(.white)
-                    .lineLimit(0)
-                    .minimumScaleFactor(0.8)
-                    .font(.system(size: 12))
-                Spacer()
+                .padding(.all, 10)
             }
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 7)
         }
-        .frame(width: 175, height: 100)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
@@ -47,6 +54,7 @@ struct TripCellView: View {
         return formatter.string(from: date)
     }
 }
+
 
 #Preview {
     TripCellView(trip: Trip(name: "Франция", startDate: .now, endDate: .distantFuture, expense: [Expense(name: "coffe", expense: 12, date: .now)], budget: 3000))

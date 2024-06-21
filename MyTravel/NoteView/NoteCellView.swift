@@ -43,7 +43,7 @@ struct NoteCellView: View {
                 }
                 .padding(.all, 10)
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 7)
         }
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }

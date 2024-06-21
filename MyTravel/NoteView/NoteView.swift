@@ -40,7 +40,7 @@ struct NoteView: View {
                                 Button(role: .destructive) {
                                     modelContext.delete(note)
                                 } label: {
-                                    Label("", systemImage: "trash")
+                                    Image(systemName: "trash")
                                 }
                             }
                         }
@@ -61,8 +61,8 @@ struct NoteView: View {
                 }
             }
             .background(.darkBlue)
+            .ignoresSafeArea(.keyboard)
             .navigationTitle("Notes")
-            .navigationBarTitleTextColor(.white)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Button(action: {

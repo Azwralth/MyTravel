@@ -20,7 +20,6 @@ struct MyTravelApp: App {
             Destination.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
@@ -34,5 +33,17 @@ struct MyTravelApp: App {
         }
         .modelContainer(sharedModelContainer)
         .environment(locationManager)
+    }
+    
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor.darkBlue
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        appearance.shadowColor = UIColor.clear
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
     }
 }
