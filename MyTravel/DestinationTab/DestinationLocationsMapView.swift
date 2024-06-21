@@ -59,6 +59,7 @@ struct DestinationLocationsMapView: View {
             Map(position: $cameraPosition, selection: $selectedPlacemark) {
                 ForEach(listPlacemarks) { placemark in
                     if isManualMarker {
+                        UserAnnotation()
                         if placemark.destination != nil {
                             Marker(coordinate: placemark.coordinate) {
                                 Label(placemark.name, systemImage: "star")

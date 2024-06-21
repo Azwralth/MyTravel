@@ -11,6 +11,12 @@ struct MainView: View {
     var body: some View {
         TabView {
             Group {
+//                TripMapView()
+//                    .tabItem {
+//                        Image(systemName: "map")
+//                        Text("Map")
+//                    }
+                
                 NoteView()
                     .tabItem {
                         Image(systemName: "note")

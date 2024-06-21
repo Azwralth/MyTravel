@@ -36,7 +36,7 @@ struct FinancialTripView: View {
                 }
                 .scrollContentBackground(.hidden)
                 .navigationBarTitleTextColor(.white)
-                .background(Color.darkBlue)
+                .background(.darkBlue)
                 .navigationTitle("Trips")
                 .toolbar {
                     ToolbarItem {

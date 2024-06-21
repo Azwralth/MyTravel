@@ -10,6 +10,7 @@ import SwiftData
 
 @main
 struct MyTravelApp: App {
+    @State private var locationManager = LocationManager()
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -29,8 +30,9 @@ struct MyTravelApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView().navigationBarTitleTextColor(.white)
         }
         .modelContainer(sharedModelContainer)
+        .environment(locationManager)
     }
 }

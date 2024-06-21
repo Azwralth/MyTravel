@@ -29,7 +29,7 @@
 		76744A3B2C21D3680031D99A /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A3A2C21D3680031D99A /* Note.swift */; };
 		76744A3D2C21D37A0031D99A /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A3C2C21D37A0031D99A /* Trip.swift */; };
 		76744A3F2C21D3920031D99A /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A3E2C21D3920031D99A /* Extension + View.swift */; };
-		768C86E22C258BF000C17EDA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 768C86E12C258BF000C17EDA /* Info.plist */; };
+		768C86E52C2595C600C17EDA /* TripMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768C86E42C2595C600C17EDA /* TripMapView.swift */; };
 		76AD393E2C21DE0A0035CE98 /* CreateTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD393D2C21DE0A0035CE98 /* CreateTripView.swift */; };
 		76AD39402C21DED90035CE98 /* DetailTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD393F2C21DED90035CE98 /* DetailTripView.swift */; };
 		76B81E4B2C232AC2003B9B20 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B81E4A2C232AC2003B9B20 /* Destination.swift */; };
@@ -67,7 +67,7 @@
 		76744A3A2C21D3680031D99A /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		76744A3C2C21D37A0031D99A /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		76744A3E2C21D3920031D99A /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
-		768C86E12C258BF000C17EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		768C86E42C2595C600C17EDA /* TripMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripMapView.swift; sourceTree = "<group>"; };
 		76AD393D2C21DE0A0035CE98 /* CreateTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripView.swift; sourceTree = "<group>"; };
 		76AD393F2C21DED90035CE98 /* DetailTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTripView.swift; sourceTree = "<group>"; };
 		76B81E4A2C232AC2003B9B20 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
@@ -121,9 +121,9 @@
 		76744A132C21D27E0031D99A /* MyTravel */ = {
 			isa = PBXGroup;
 			children = (
-				768C86E12C258BF000C17EDA /* Info.plist */,
 				76744A142C21D27E0031D99A /* MyTravelApp.swift */,
 				76744A242C21D2A30031D99A /* MainView.swift */,
+				768C86E42C2595C600C17EDA /* TripMapView.swift */,
 				76B81E532C232BE4003B9B20 /* DestinationTab */,
 				76B81E582C232C83003B9B20 /* SharedViews */,
 				762AD6F92C22C79C00118943 /* Views */,
@@ -289,7 +289,6 @@
 			files = (
 				76744A1E2C21D27F0031D99A /* Preview Assets.xcassets in Resources */,
 				76744A1B2C21D27F0031D99A /* Assets.xcassets in Resources */,
-				768C86E22C258BF000C17EDA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +303,7 @@
 				76B81E572C232C11003B9B20 /* DestinationLocationsMapView.swift in Sources */,
 				76744A272C21D2BD0031D99A /* FinancialTripView.swift in Sources */,
 				76B81E5C2C232CA7003B9B20 /* LocationDeniedView.swift in Sources */,
+				768C86E52C2595C600C17EDA /* TripMapView.swift in Sources */,
 				762AD6FB2C22D8AD00118943 /* ExpenseCellView.swift in Sources */,
 				76B81E522C232BAE003B9B20 /* MapManager.swift in Sources */,
 				76B81E552C232BFA003B9B20 /* DestinationsListView.swift in Sources */,
@@ -468,14 +468,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyTravel/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your photo library to allow you to upload receipts and track your expenses";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need to know your location so you can plan your routes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -505,14 +504,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyTravel/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your photo library to allow you to upload receipts and track your expenses";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need to know your location so you can plan your routes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

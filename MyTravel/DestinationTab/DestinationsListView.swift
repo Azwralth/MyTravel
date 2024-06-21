@@ -18,41 +18,26 @@ struct DestinationsListView: View {
         NavigationStack(path: $path) {
             Group {
                 if !destinations.isEmpty {
-                    List {
-                        ForEach(destinations) { destination in
-                            NavigationLink {
-                                DestinationLocationsMapView(destination: destination)
+                    List(destinations) { destination in
+                        NavigationLink(value: destination) {
+                            DestinationCellView(destination: destination)
+                        }
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                modelContext.delete(destination)
                             } label: {
-                                DestinationCellView(destination: destination)
-                            }
-                            .listRowSeparator(.hidden)
-                            .listRowBackground(CustomColors.darkBlue)
-                            .listRowInsets(EdgeInsets())
-                            .swipeActions(edge: .trailing) {
-                                Button(role: .destructive) {
-                                    modelContext.delete(destination)
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
-                                }
+                                Label("Delete", systemImage: "trash")
                             }
                         }
                     }
-                    .listRowSpacing(8)
-                    .listStyle(.insetGrouped)
+                    .listStyle(.plain)
                     .scrollContentBackground(.hidden)
                     .background(.darkBlue)
-                } else {
-                    VStack {
-                        Spacer()
-                        ZStack {
-                            Color(CustomColors.darkBlue)
-                                .ignoresSafeArea()
-                            DefaultContentView(name: "Нет доступных путешествий")
-                                .offset(y: -25)
-                        }
-                        Spacer()
+                    .navigationDestination(for: Destination.self) { destination in
+                        DestinationLocationsMapView(destination: destination)
                     }
-                    .ignoresSafeArea()
+                } else {
+                    DefaultContentView(name: "Нет доступных маршрутов")
                 }
             }
             .navigationTitle("My Destinations")
@@ -89,4 +74,3 @@ struct DestinationsListView: View {
     DestinationsListView()
         .modelContainer(Destination.preview)
 }
-

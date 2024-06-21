@@ -90,23 +90,6 @@ struct LocationDetailView: View {
                     .buttonStyle(.borderedProminent)
                     .tint(inList ? .red : .green)
                     .disabled((name.isEmpty || isChanged))
-                } else {
-                    HStack {
-                        Button("Open in maps", systemImage: "map") {
-                            if let selectedPlacemark {
-                                let placemark = MKPlacemark(coordinate: selectedPlacemark.coordinate)
-                                let mapItem = MKMapItem(placemark: placemark)
-                                mapItem.name = selectedPlacemark.name
-                                mapItem.openInMaps()
-                            }
-                        }
-                        .fixedSize(horizontal: true, vertical: false)
-                        Button("Show Route", systemImage: "location.north") {
-
-                        }
-                        .fixedSize(horizontal: true, vertical: false)
-                    }
-                    .buttonStyle(.bordered)
                 }
             }
             Spacer()

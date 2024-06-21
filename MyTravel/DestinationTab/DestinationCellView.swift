@@ -25,7 +25,7 @@ struct DestinationCellView: View {
                             .background(.blue)
                             .foregroundColor(.white)
                             .cornerRadius(16)
-                        Text("^[\(destination.placemarks.count) location](inflect: true)")
+                        Text("^[\(destination.placemarks.count) \("location")](inflect: true)")
                             .font(.system(size: 17))
                             .foregroundStyle(.white)
 
