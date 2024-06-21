@@ -11,12 +11,13 @@ struct DetailTripView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var showingAddAlert = false
     @State private var showingDeleteExpenseAlert = false
+    @State private var showEditView = false
     @State private var expenseName = ""
     @State private var expenseAmount = ""
     @State private var expenseDate = Date()
     @State private var expenseToDelete: Expense?
     
-    private var trip: Trip
+    @State private var trip: Trip
     
     init(trip: Trip) {
         self.trip = trip
@@ -60,7 +61,7 @@ struct DetailTripView: View {
                 }
                 .alert(isPresented: $showingDeleteExpenseAlert) {
                     Alert(
-                        title: Text("Удалить трату?"),
+                        title: Text("Удалить расход?"),
                         primaryButton: .destructive(Text("Удалить")) {
                             if let expense = expenseToDelete {
                                 deleteExpense(expense)
@@ -78,11 +79,21 @@ struct DetailTripView: View {
             .toolbar {
                 ToolbarItem {
                     Button(action: {
+                        showEditView = true
+                    }) {
+                        Text("Edit")
+                    }
+                }
+                ToolbarItem {
+                    Button(action: {
                         showingAddAlert.toggle()
                     }) {
                         Label("Add expense", systemImage: "plus.circle.fill")
                     }
                 }
+            }
+            .sheet(isPresented: $showEditView) {
+                EditTripView(trip: $trip)
             }
             .alert("Create new expense", isPresented: $showingAddAlert, actions: {
                 TextField("Expense Name", text: $expenseName)

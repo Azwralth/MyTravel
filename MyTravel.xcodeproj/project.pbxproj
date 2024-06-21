@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		762AD6F82C22C75800118943 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762AD6F72C22C75800118943 /* CustomTextField.swift */; };
 		762AD6FB2C22D8AD00118943 /* ExpenseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */; };
+		763D3F6F2C25822C004F2A4B /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D3F6E2C25822C004F2A4B /* ShareSheet.swift */; };
 		764CD1352C23A77700A188C6 /* DefaultContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764CD1342C23A77700A188C6 /* DefaultContentView.swift */; };
+		7664F41B2C24BC8F004BEBF3 /* EditTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */; };
 		76744A152C21D27E0031D99A /* MyTravelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A142C21D27E0031D99A /* MyTravelApp.swift */; };
 		76744A192C21D27E0031D99A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A182C21D27E0031D99A /* Item.swift */; };
 		76744A1B2C21D27F0031D99A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76744A1A2C21D27F0031D99A /* Assets.xcassets */; };
@@ -27,6 +29,7 @@
 		76744A3B2C21D3680031D99A /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A3A2C21D3680031D99A /* Note.swift */; };
 		76744A3D2C21D37A0031D99A /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A3C2C21D37A0031D99A /* Trip.swift */; };
 		76744A3F2C21D3920031D99A /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A3E2C21D3920031D99A /* Extension + View.swift */; };
+		768C86E22C258BF000C17EDA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 768C86E12C258BF000C17EDA /* Info.plist */; };
 		76AD393E2C21DE0A0035CE98 /* CreateTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD393D2C21DE0A0035CE98 /* CreateTripView.swift */; };
 		76AD39402C21DED90035CE98 /* DetailTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD393F2C21DED90035CE98 /* DetailTripView.swift */; };
 		76B81E4B2C232AC2003B9B20 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B81E4A2C232AC2003B9B20 /* Destination.swift */; };
@@ -43,8 +46,9 @@
 /* Begin PBXFileReference section */
 		762AD6F72C22C75800118943 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCellView.swift; sourceTree = "<group>"; };
+		763D3F6E2C25822C004F2A4B /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		764CD1342C23A77700A188C6 /* DefaultContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultContentView.swift; sourceTree = "<group>"; };
-		764CD1362C24269A00A188C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripView.swift; sourceTree = "<group>"; };
 		76744A112C21D27E0031D99A /* MyTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76744A142C21D27E0031D99A /* MyTravelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTravelApp.swift; sourceTree = "<group>"; };
 		76744A182C21D27E0031D99A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 		76744A3A2C21D3680031D99A /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		76744A3C2C21D37A0031D99A /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		76744A3E2C21D3920031D99A /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
+		768C86E12C258BF000C17EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76AD393D2C21DE0A0035CE98 /* CreateTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripView.swift; sourceTree = "<group>"; };
 		76AD393F2C21DED90035CE98 /* DetailTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTripView.swift; sourceTree = "<group>"; };
 		76B81E4A2C232AC2003B9B20 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
@@ -91,6 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				762AD6F72C22C75800118943 /* CustomTextField.swift */,
+				764CD1342C23A77700A188C6 /* DefaultContentView.swift */,
+				763D3F6E2C25822C004F2A4B /* ShareSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -114,7 +121,7 @@
 		76744A132C21D27E0031D99A /* MyTravel */ = {
 			isa = PBXGroup;
 			children = (
-				764CD1362C24269A00A188C6 /* Info.plist */,
+				768C86E12C258BF000C17EDA /* Info.plist */,
 				76744A142C21D27E0031D99A /* MyTravelApp.swift */,
 				76744A242C21D2A30031D99A /* MainView.swift */,
 				76B81E532C232BE4003B9B20 /* DestinationTab */,
@@ -127,7 +134,6 @@
 				76744A1C2C21D27F0031D99A /* Preview Content */,
 				76744A412C21D4410031D99A /* Extension */,
 				76B81E4E2C232B7D003B9B20 /* Services */,
-				764CD1342C23A77700A188C6 /* DefaultContentView.swift */,
 			);
 			path = MyTravel;
 			sourceTree = "<group>";
@@ -186,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				76744A262C21D2BD0031D99A /* FinancialTripView.swift */,
+				7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */,
 				76744A282C21D2CB0031D99A /* TripCellView.swift */,
 				76AD393D2C21DE0A0035CE98 /* CreateTripView.swift */,
 				762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */,
@@ -282,6 +289,7 @@
 			files = (
 				76744A1E2C21D27F0031D99A /* Preview Assets.xcassets in Resources */,
 				76744A1B2C21D27F0031D99A /* Assets.xcassets in Resources */,
+				768C86E22C258BF000C17EDA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +312,9 @@
 				764CD1352C23A77700A188C6 /* DefaultContentView.swift in Sources */,
 				76B81E5E2C234C27003B9B20 /* DestinationCellView.swift in Sources */,
 				76744A3D2C21D37A0031D99A /* Trip.swift in Sources */,
+				763D3F6F2C25822C004F2A4B /* ShareSheet.swift in Sources */,
 				76B81E502C232B99003B9B20 /* LocationManager.swift in Sources */,
+				7664F41B2C24BC8F004BEBF3 /* EditTripView.swift in Sources */,
 				76B81E4D2C232AE3003B9B20 /* MTPlacemark.swift in Sources */,
 				76744A252C21D2A30031D99A /* MainView.swift in Sources */,
 				76744A3B2C21D3680031D99A /* Note.swift in Sources */,
@@ -458,6 +468,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyTravel/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your photo library to allow you to upload receipts and track your expenses";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -493,6 +505,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyTravel/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your photo library to allow you to upload receipts and track your expenses";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

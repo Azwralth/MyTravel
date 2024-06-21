@@ -166,6 +166,7 @@ struct DestinationLocationsMapView: View {
             .padding()
         }
         .navigationTitle("Destination")
+        .navigationBarTitleTextColor(.white)
         .navigationBarTitleDisplayMode(.inline)
         .onMapCameraChange(frequency: .onEnd) { context in
             visibleRegion = context.region

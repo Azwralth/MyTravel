@@ -28,12 +28,8 @@ struct FinancialTripView: View {
                     } else {
                         VStack {
                             Spacer()
-                            ZStack {
-                                Color(CustomColors.darkBlue)
-                                    .ignoresSafeArea()
-                                DefaultContentView(name: "Нет доступных путешествий")
-                                    .offset(y: 200)
-                            }
+                            DefaultContentView(name: "Нет доступных путешествий")
+                                .offset(y: 200)
                             Spacer()
                         }
                     }
@@ -47,7 +43,7 @@ struct FinancialTripView: View {
                         Button(action: {
                             showCreateTripView = true
                         }) {
-                            Label("Add Trip", systemImage: "plus.circle.fill")
+                            Image(systemName: "plus.circle.fill")
                         }
                     }
                 }

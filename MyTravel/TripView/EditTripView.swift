@@ -1,23 +1,25 @@
 //
-//  CreateTripView.swift
+//  EditTripView.swift
 //  MyTravel
 //
-//  Created by Владислав Соколов on 18.06.2024.
+//  Created by Владислав Соколов on 20.06.2024.
 //
 
 import SwiftUI
 
-struct CreateTripView: View {
+struct EditTripView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.presentationMode) private var presentationMode
     
-    @State private var name = ""
-    @State private var budget = ""
-    @State private var startDate = Date()
-    @State private var endDate = Date()
     @State private var isValid = false
     @State private var showingStartDatePicker = false
     @State private var showingEndDatePicker = false
+    
+    @Binding var trip: Trip
+    
+    init(trip: Binding<Trip>) {
+        self._trip = trip
+    }
     
     let rows: [GridItem] = [
         GridItem(.fixed(20))
@@ -26,20 +28,15 @@ struct CreateTripView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                CustomTextField(text: $name, field: "Name")
-                    .onChange(of: name) { _, newValue in
-                        isValid = !newValue.isEmpty && !budget.isEmpty
+                CustomTextField(text: $trip.name, field: "Name")
+                    .onChange(of: trip.name) { _, newValue in
+                        isValid = !newValue.isEmpty && !trip.budget.formatted().isEmpty
                     }
-                    
                     .padding(.horizontal)
                     .padding(.top, 30)
                     .padding(.bottom, 105)
-                    .minimumScaleFactor(0.8)
                 
-                CustomTextField(text: $budget, field: "Budget")
-                    .onChange(of: budget) { _, newValue in
-                        isValid = !newValue.isEmpty && !name.isEmpty
-                    }
+                CustomTextField(text: .init(get: { String(trip.budget) }, set: { trip.budget = $0.isEmpty ? 0 : Double($0) ?? 0 }), field: "Budget")
                     .keyboardType(.numberPad)
                     .padding(.horizontal)
                     .padding(.top, -105)
@@ -49,7 +46,7 @@ struct CreateTripView: View {
                         showingStartDatePicker.toggle()
                     }) {
                         HStack {
-                            Text("Start Date: \(startDate, formatter: dateFormatter)")
+                            Text("Start Date: \(trip.startDate, formatter: dateFormatter)")
                                 .foregroundStyle(.gray)
                             Spacer()
                             Image(systemName: "calendar")
@@ -61,7 +58,7 @@ struct CreateTripView: View {
                         showingEndDatePicker.toggle()
                     }) {
                         HStack {
-                            Text("End Date: \(endDate, formatter: dateFormatter)")
+                            Text("End Date: \(trip.endDate, formatter: dateFormatter)")
                                 .foregroundStyle(.gray)
                             Spacer()
                             Image(systemName: "calendar")
@@ -79,52 +76,36 @@ struct CreateTripView: View {
                 .padding(.top, -30)
                 
                 Spacer()
-                
-                Button(action: {
-                    if let budgetValue = Double(budget) {
-                        let newTrip = Trip(name: name, startDate: startDate, endDate: endDate, budget: budgetValue)
-                        modelContext.insert(newTrip)
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                }) {
-                    Text("Add")
-                }
-                .frame(width: 350, height: 60)
-                .background(.blue)
-                .foregroundStyle(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .opacity(!isValid ? 0.3 : 1)
-                .disabled(!isValid)
             }
-            .navigationTitle("New Trip")
+            .navigationTitle("Edit Trip")
             .background(.darkBlue)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Close") {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
             }
             .sheet(isPresented: $showingStartDatePicker) {
                 VStack {
-                    DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
+                    DatePicker("Start Date", selection: $trip.startDate, displayedComponents: .date)
                         .datePickerStyle(GraphicalDatePickerStyle())
                         .padding()
                     Button("Done") {
                         showingStartDatePicker.toggle()
-                        validateForm()
+//                        validateForm()
                     }
                     .padding()
                 }
             }
             .sheet(isPresented: $showingEndDatePicker) {
                 VStack {
-                    DatePicker("End Date", selection: $endDate, displayedComponents: .date)
+                    DatePicker("End Date", selection: $trip.endDate, displayedComponents: .date)
                         .datePickerStyle(GraphicalDatePickerStyle())
                         .padding()
                     Button("Done") {
                         showingEndDatePicker.toggle()
-                        validateForm()
+//                        validateForm()
                     }
                     .padding()
                 }
@@ -138,16 +119,11 @@ struct CreateTripView: View {
         return formatter
     }
     
-    private func validateForm() {
-        if let _ = Double(budget) {
-            isValid = !name.isEmpty && !budget.isEmpty && startDate <= endDate
-        } else {
-            isValid = false
-        }
-    }
-}
-
-
-#Preview {
-    CreateTripView()
+//    private func validateForm() {
+//        if let budget = trip.budget {
+//            isValid = !trip.name.isEmpty && trip.startDate <= trip.endDate
+//        } else {
+//            isValid = false
+//        }
+//    }
 }

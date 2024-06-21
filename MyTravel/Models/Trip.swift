@@ -10,11 +10,11 @@ import SwiftData
 
 @Model
 final class Trip {
-    let name: String
-    let startDate: Date
-    let endDate: Date
+    var name: String
+    var startDate: Date
+    var endDate: Date
     var expense: [Expense]?
-    let budget: Double
+    var budget: Double
     
     init(name: String, startDate: Date, endDate: Date, expense: [Expense]? = nil, budget: Double) {
         self.name = name

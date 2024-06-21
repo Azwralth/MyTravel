@@ -15,7 +15,9 @@ struct CreateNoteView: View {
     @State private var name = ""
     @State private var detail = ""
     @State private var annotation: Annotation = .flight
+    @State private var deadline = Date()
     @State private var isValid = false
+    @State private var showingDeadlinePicker = false
     @State private var selectedImage: PhotosPickerItem? = nil
     @State private var imageData: Data? = nil
     
@@ -62,6 +64,26 @@ struct CreateNoteView: View {
                     .padding(.horizontal)
                     .padding(.top, -90)
                 
+                Button(action: {
+                    showingDeadlinePicker.toggle()
+                }) {
+                    HStack {
+                        Text("Deadline: \(deadline, formatter: dateFormatter)")
+                            .foregroundStyle(.gray)
+                        Spacer()
+                        Image(systemName: "calendar")
+                            .foregroundStyle(.gray)
+                            .padding()
+                    }
+                }
+                .padding(.leading, 20)
+                .frame(minHeight: 65)
+                .background(.darkBlue)
+                .overlay(RoundedRectangle(cornerRadius: 20).stroke(.gray, lineWidth: 1))
+                .padding(.horizontal)
+                .padding(.bottom, 10)
+                .padding(.top, -10)
+                
                 PhotosPicker("Add Image", selection: $selectedImage, matching: .images)
                     .onChange(of: selectedImage) { _, newValue in
                         if let selectedImage = selectedImage {
@@ -88,7 +110,7 @@ struct CreateNoteView: View {
                 Spacer()
                 
                 Button(action: {
-                    let newNote = Note(name: name, detail: detail, annotation: annotation, date: .now, image: imageData)
+                    let newNote = Note(name: name, detail: detail, annotation: annotation, date: .now, image: imageData, deadline: deadline)
                     modelContext.insert(newNote)
                     presentationMode.wrappedValue.dismiss()
                 }) {
@@ -111,7 +133,24 @@ struct CreateNoteView: View {
                     }
                 }
             }
+            .sheet(isPresented: $showingDeadlinePicker) {
+                VStack {
+                    DatePicker("Deadline", selection: $deadline, displayedComponents: .date)
+                        .datePickerStyle(GraphicalDatePickerStyle())
+                        .padding()
+                    Button("Done") {
+                        showingDeadlinePicker.toggle()
+                    }
+                    .padding()
+                }
+            }
         }
+    }
+    
+    private var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter
     }
 }
 

@@ -38,13 +38,14 @@ struct DetailNoteView: View {
                             .multilineTextAlignment(.leading)
                         Spacer()
                     }
-    
-                    Button {
-                        isShowingImage.toggle()
-                    } label: {
-                        Text(isShowingImage ? "Скрыть изображения" : "Показать изображение")
-                    }
                     
+                    if !(note.image?.isEmpty ?? true) {
+                        Button {
+                            isShowingImage.toggle()
+                        } label: {
+                            Text(isShowingImage ? "Скрыть изображения" : "Показать изображение")
+                        }
+                    }
                     
                     if isShowingImage, let image = note.image {
                         withAnimation {
@@ -56,13 +57,13 @@ struct DetailNoteView: View {
                         }
                     }
                     
-                    Button {
-                        isShowingShareSheet = true
-                    } label: {
-                        Text("Поделиться")
+                    if isShowingImage {
+                        Button {
+                            isShowingShareSheet = true
+                        } label: {
+                            Text("Поделиться")
+                        }
                     }
-                    .opacity(isShowingImage ? 1 : 0)
-                    .disabled(!isShowingImage)
                     
                     Spacer()
                 }
@@ -78,17 +79,6 @@ struct DetailNoteView: View {
     }
 }
 
-struct ShareSheet: UIViewControllerRepresentable {
-    var activityItems: [Any]
-    var applicationActivities: [UIActivity]? = nil
-
-    func makeUIViewController(context: Context) -> UIActivityViewController {
-        return UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
-    }
-
-    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
-}
-
 #Preview {
-    DetailNoteView(note: Note(name: "Страховка", detail: "найти и оплатить страховку потом отдать ее страховому агенту затем еще что-то и еще что-то а потом еще", annotation: .other, date: .now, image: nil))
+    DetailNoteView(note: Note(name: "Страховка", detail: "найти и оплатить страховку потом отдать ее страховому агенту затем еще что-то и еще что-то а потом еще", annotation: .other, date: .now, image: nil, deadline: .distantFuture))
 }

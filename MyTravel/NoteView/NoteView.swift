@@ -12,13 +12,22 @@ struct NoteView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var notes: [Note]
     @State private var showCreateNoteView = false
+    @State private var isSortedDate = false
+    
+    var sortedNotes: [Note] {
+        if isSortedDate {
+            return notes.sorted(by: { $0.date > $1.date })
+        } else {
+            return notes
+        }
+    }
     
     var body: some View {
         NavigationStack {
             VStack {
                 if !notes.isEmpty {
                     List {
-                        ForEach(notes) { note in
+                        ForEach(sortedNotes) { note in
                             NavigationLink {
                                 DetailNoteView(note: note)
                             } label: {
@@ -40,17 +49,12 @@ struct NoteView: View {
                     .listStyle(.insetGrouped)
                     .scrollContentBackground(.hidden)
                     .padding(.leading, -5)
-                    
                 } else {
                     ScrollView {
                         VStack {
                             Spacer()
-                            ZStack {
-                                Color(CustomColors.darkBlue)
-                                    .ignoresSafeArea()
-                                DefaultContentView(name: "Нет доступных заметок")
-                                    .offset(y: 200)
-                            }
+                            DefaultContentView(name: "Нет доступных заметок")
+                                .offset(y: 200)
                             Spacer()
                         }
                     }
@@ -60,11 +64,18 @@ struct NoteView: View {
             .navigationTitle("Notes")
             .navigationBarTitleTextColor(.white)
             .toolbar {
-                ToolbarItem {
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    Button(action: {
+                        withAnimation {
+                            isSortedDate.toggle()
+                        }
+                    }) {
+                        Image(systemName: isSortedDate ? "arrow.up.arrow.down.circle.fill" : "arrow.up.arrow.down.circle")
+                    }
                     Button(action: {
                         showCreateNoteView = true
                     }) {
-                        Label("Добавить заметку", systemImage: "plus.circle.fill")
+                        Image(systemName: "plus.circle.fill")
                     }
                 }
             }

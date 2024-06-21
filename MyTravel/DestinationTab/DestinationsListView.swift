@@ -48,7 +48,7 @@ struct DestinationsListView: View {
                             Color(CustomColors.darkBlue)
                                 .ignoresSafeArea()
                             DefaultContentView(name: "Нет доступных путешествий")
-                                .offset(y: 200)
+                                .offset(y: -25)
                         }
                         Spacer()
                     }
@@ -56,6 +56,7 @@ struct DestinationsListView: View {
                 }
             }
             .navigationTitle("My Destinations")
+            .navigationBarTitleTextColor(.white)
             .toolbar {
                 Button {
                     newDestination.toggle()
