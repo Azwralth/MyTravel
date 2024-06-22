@@ -44,7 +44,6 @@ struct FinancialTripView: View {
                     VStack {
                         Spacer()
                         DefaultContentView(name: "Нет доступных путешествий")
-                            .offset(y: 200)
                         Spacer()
                     }
                 }

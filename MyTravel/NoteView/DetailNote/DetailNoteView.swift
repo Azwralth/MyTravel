@@ -8,13 +8,10 @@
 import SwiftUI
 
 struct DetailNoteView: View {
-    @State private var isShowingImage = false
-    @State private var isShowingShareSheet = false
-    
-    private let note: Note
+    @StateObject private var viewModel: DetailNoteViewModel
     
     init(note: Note) {
-        self.note = note
+        _viewModel = StateObject(wrappedValue: DetailNoteViewModel(note: note))
     }
     
     var body: some View {
@@ -23,7 +20,7 @@ struct DetailNoteView: View {
                 .ignoresSafeArea()
             ScrollView {
                 VStack(alignment: .leading) {
-                    Text(note.annotation.title)
+                    Text(viewModel.annotationTitle)
                         .font(.system(size: 14))
                         .padding(.horizontal, 10)
                         .padding(.vertical, 5)
@@ -31,7 +28,7 @@ struct DetailNoteView: View {
                         .foregroundColor(.white)
                         .cornerRadius(16)
                     HStack(alignment: .firstTextBaseline, spacing: 0) {
-                        Text(note.detail)
+                        Text(viewModel.detailText)
                             .foregroundStyle(.white)
                             .font(.system(size: 18))
                             .lineLimit(nil)
@@ -39,15 +36,15 @@ struct DetailNoteView: View {
                         Spacer()
                     }
                     
-                    if !(note.image?.isEmpty ?? true) {
+                    if !(viewModel.note.image?.isEmpty ?? true) {
                         Button {
-                            isShowingImage.toggle()
+                            viewModel.isShowingImage.toggle()
                         } label: {
-                            Text(isShowingImage ? "Скрыть изображения" : "Показать изображение")
+                            Text(viewModel.imageButtonText)
                         }
                     }
                     
-                    if isShowingImage, let image = note.image {
+                    if viewModel.isShowingImage, let image = viewModel.note.image {
                         withAnimation {
                             Image(uiImage: UIImage(data: image)!)
                                 .resizable()
@@ -57,9 +54,9 @@ struct DetailNoteView: View {
                         }
                     }
                     
-                    if isShowingImage {
+                    if viewModel.isShowingImage {
                         Button {
-                            isShowingShareSheet = true
+                            viewModel.isShowingShareSheet = true
                         } label: {
                             Text("Поделиться")
                         }
@@ -68,10 +65,22 @@ struct DetailNoteView: View {
                     Spacer()
                 }
                 .padding()
-                .navigationTitle(note.name)
+                .navigationTitle(viewModel.note.name)
             }
-            .sheet(isPresented: $isShowingShareSheet) {
-                if let imageData = note.image, let uiImage = UIImage(data: imageData) {
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        viewModel.isShowEditView.toggle()
+                    } label: {
+                        Text("Edit")
+                    }
+                }
+            }
+            .sheet(isPresented: $viewModel.isShowEditView) {
+                EditNoteView(note: $viewModel.note)
+            }
+            .sheet(isPresented: $viewModel.isShowingShareSheet) {
+                if let imageData = viewModel.note.image, let uiImage = UIImage(data: imageData) {
                     ShareSheet(activityItems: [uiImage])
                 }
             }

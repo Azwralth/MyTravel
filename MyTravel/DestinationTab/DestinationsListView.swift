@@ -33,7 +33,7 @@ struct DestinationsListView: View {
                                     Button(role: .destructive) {
                                         modelContext.delete(destination)
                                     } label: {
-                                        Label("Delete", systemImage: "trash")
+                                        Image(systemName: "trash")
                                     }
                                 }
                             }
@@ -79,5 +79,4 @@ struct DestinationsListView: View {
 
 #Preview {
     DestinationsListView()
-        .modelContainer(Destination.preview)
 }

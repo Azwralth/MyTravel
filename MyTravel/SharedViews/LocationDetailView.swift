@@ -11,13 +11,14 @@ import SwiftData
 
 struct LocationDetailView: View {
     @Environment(\.dismiss) private var dismiss
-    var destination: Destination?
-    var selectedPlacemark: MTPlacemark?
     
     @State private var name = ""
     @State private var address = ""
     
     @State private var lookaroundScene: MKLookAroundScene?
+    
+    var destination: Destination?
+    var selectedPlacemark: MTPlacemark?
     
     var isChanged: Bool {
         guard let selectedPlacemark else { return false }
@@ -112,25 +113,4 @@ struct LocationDetailView: View {
             lookaroundScene = try? await lookaroundRequest.scene
         }
     }
-}
-
-#Preview("Destination Tab") {
-    let container = Destination.preview
-    let fetchDescriptor = FetchDescriptor<Destination>()
-    let destination = try! container.mainContext.fetch(fetchDescriptor)[0]
-    let selectedPlacemark = destination.placemarks[0]
-    return LocationDetailView(
-        destination: destination,
-        selectedPlacemark: selectedPlacemark
-    )
-}
-
-#Preview("TripMap Tab") {
-    let container = Destination.preview
-    let fetchDescriptor = FetchDescriptor<MTPlacemark>()
-    let placemarks = try! container.mainContext.fetch(fetchDescriptor)
-    let selectedPlacemark = placemarks[0]
-    return LocationDetailView(
-        selectedPlacemark: selectedPlacemark
-    )
 }

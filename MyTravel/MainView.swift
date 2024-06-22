@@ -11,7 +11,7 @@ struct MainView: View {
     var body: some View {
         TabView {
             Group {
-                NoteView()
+                NoteView(viewModel: NoteViewModel())
                     .tabItem {
                         Image(systemName: "note")
                         Text("Notes")

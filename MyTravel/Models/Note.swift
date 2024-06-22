@@ -10,12 +10,12 @@ import SwiftData
 
 @Model
 final class Note {
-    let name: String
-    let detail: String
-    let annotation: Annotation
-    let date: Date
-    let image: Data?
-    let deadline: Date
+    var name: String
+    var detail: String
+    var annotation: Annotation
+    var date: Date
+    var image: Data?
+    var deadline: Date
     
     init(name: String, detail: String, annotation: Annotation, date: Date, image: Data?, deadline: Date) {
         self.name = name

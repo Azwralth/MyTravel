@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		762ACCD62C263F2B00D947AC /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762ACCD52C263F2B00D947AC /* EditNoteView.swift */; };
 		762AD6F82C22C75800118943 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762AD6F72C22C75800118943 /* CustomTextField.swift */; };
 		762AD6FB2C22D8AD00118943 /* ExpenseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */; };
 		763D3F6F2C25822C004F2A4B /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D3F6E2C25822C004F2A4B /* ShareSheet.swift */; };
 		764CD1352C23A77700A188C6 /* DefaultContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764CD1342C23A77700A188C6 /* DefaultContentView.swift */; };
 		7664F41B2C24BC8F004BEBF3 /* EditTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */; };
 		76744A152C21D27E0031D99A /* MyTravelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A142C21D27E0031D99A /* MyTravelApp.swift */; };
-		76744A192C21D27E0031D99A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A182C21D27E0031D99A /* Item.swift */; };
 		76744A1B2C21D27F0031D99A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76744A1A2C21D27F0031D99A /* Assets.xcassets */; };
 		76744A1E2C21D27F0031D99A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76744A1D2C21D27F0031D99A /* Preview Assets.xcassets */; };
 		76744A252C21D2A30031D99A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A242C21D2A30031D99A /* MainView.swift */; };
@@ -38,11 +38,17 @@
 		76B81E552C232BFA003B9B20 /* DestinationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B81E542C232BFA003B9B20 /* DestinationsListView.swift */; };
 		76B81E572C232C11003B9B20 /* DestinationLocationsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B81E562C232C11003B9B20 /* DestinationLocationsMapView.swift */; };
 		76B81E5A2C232C93003B9B20 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B81E592C232C93003B9B20 /* LocationDetailView.swift */; };
-		76B81E5C2C232CA7003B9B20 /* LocationDeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B81E5B2C232CA7003B9B20 /* LocationDeniedView.swift */; };
 		76B81E5E2C234C27003B9B20 /* DestinationCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B81E5D2C234C27003B9B20 /* DestinationCellView.swift */; };
+		76EFA2122C26E0FC00FF209A /* Extension + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFA2112C26E0FC00FF209A /* Extension + Date.swift */; };
+		76EFA2142C26E28200FF209A /* NoteCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFA2132C26E28200FF209A /* NoteCellViewModel.swift */; };
+		76EFA2172C26E48700FF209A /* DetailNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFA2162C26E48700FF209A /* DetailNoteViewModel.swift */; };
+		76EFA21A2C26EBEA00FF209A /* CreateNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFA2192C26EBEA00FF209A /* CreateNoteViewModel.swift */; };
+		76EFA21D2C26F10700FF209A /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFA21C2C26F10700FF209A /* NoteViewModel.swift */; };
+		76EFA2202C26F11D00FF209A /* EditNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFA21F2C26F11D00FF209A /* EditNoteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		762ACCD52C263F2B00D947AC /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
 		762AD6F72C22C75800118943 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCellView.swift; sourceTree = "<group>"; };
 		763D3F6E2C25822C004F2A4B /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
@@ -50,7 +56,6 @@
 		7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripView.swift; sourceTree = "<group>"; };
 		76744A112C21D27E0031D99A /* MyTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76744A142C21D27E0031D99A /* MyTravelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTravelApp.swift; sourceTree = "<group>"; };
-		76744A182C21D27E0031D99A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		76744A1A2C21D27F0031D99A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76744A1D2C21D27F0031D99A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		76744A242C21D2A30031D99A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -75,8 +80,13 @@
 		76B81E542C232BFA003B9B20 /* DestinationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationsListView.swift; sourceTree = "<group>"; };
 		76B81E562C232C11003B9B20 /* DestinationLocationsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationLocationsMapView.swift; sourceTree = "<group>"; };
 		76B81E592C232C93003B9B20 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
-		76B81E5B2C232CA7003B9B20 /* LocationDeniedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDeniedView.swift; sourceTree = "<group>"; };
 		76B81E5D2C234C27003B9B20 /* DestinationCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCellView.swift; sourceTree = "<group>"; };
+		76EFA2112C26E0FC00FF209A /* Extension + Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Date.swift"; sourceTree = "<group>"; };
+		76EFA2132C26E28200FF209A /* NoteCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCellViewModel.swift; sourceTree = "<group>"; };
+		76EFA2162C26E48700FF209A /* DetailNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoteViewModel.swift; sourceTree = "<group>"; };
+		76EFA2192C26EBEA00FF209A /* CreateNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewModel.swift; sourceTree = "<group>"; };
+		76EFA21C2C26F10700FF209A /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
+		76EFA21F2C26F11D00FF209A /* EditNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +159,6 @@
 			children = (
 				76744A3A2C21D3680031D99A /* Note.swift */,
 				76744A3C2C21D37A0031D99A /* Trip.swift */,
-				76744A182C21D27E0031D99A /* Item.swift */,
 				76B81E4A2C232AC2003B9B20 /* Destination.swift */,
 				76B81E4C2C232AE3003B9B20 /* MTPlacemark.swift */,
 			);
@@ -161,6 +170,7 @@
 			children = (
 				76744A3E2C21D3920031D99A /* Extension + View.swift */,
 				76744A322C21D3230031D99A /* CustomColors.swift */,
+				76EFA2112C26E0FC00FF209A /* Extension + Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -177,10 +187,11 @@
 		76744A432C21D47A0031D99A /* NoteView */ = {
 			isa = PBXGroup;
 			children = (
-				76744A2A2C21D2DD0031D99A /* NoteView.swift */,
-				76744A2C2C21D2EC0031D99A /* NoteCellView.swift */,
-				76744A2E2C21D2FB0031D99A /* CreateNoteView.swift */,
-				76744A342C21D3330031D99A /* DetailNoteView.swift */,
+				76EFA21E2C26F10B00FF209A /* NoteView */,
+				76EFA2152C26E28700FF209A /* NoteCellView */,
+				76EFA21B2C26EBEE00FF209A /* CreateNote */,
+				76EFA2182C26E49000FF209A /* DetailNote */,
+				76EFA2212C26F12100FF209A /* EditNote */,
 			);
 			path = NoteView;
 			sourceTree = "<group>";
@@ -189,11 +200,11 @@
 			isa = PBXGroup;
 			children = (
 				76744A262C21D2BD0031D99A /* FinancialTripView.swift */,
-				7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */,
 				76744A282C21D2CB0031D99A /* TripCellView.swift */,
 				76AD393D2C21DE0A0035CE98 /* CreateTripView.swift */,
 				762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */,
 				76AD393F2C21DED90035CE98 /* DetailTripView.swift */,
+				7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */,
 			);
 			path = TripView;
 			sourceTree = "<group>";
@@ -221,9 +232,53 @@
 			isa = PBXGroup;
 			children = (
 				76B81E592C232C93003B9B20 /* LocationDetailView.swift */,
-				76B81E5B2C232CA7003B9B20 /* LocationDeniedView.swift */,
 			);
 			path = SharedViews;
+			sourceTree = "<group>";
+		};
+		76EFA2152C26E28700FF209A /* NoteCellView */ = {
+			isa = PBXGroup;
+			children = (
+				76744A2C2C21D2EC0031D99A /* NoteCellView.swift */,
+				76EFA2132C26E28200FF209A /* NoteCellViewModel.swift */,
+			);
+			path = NoteCellView;
+			sourceTree = "<group>";
+		};
+		76EFA2182C26E49000FF209A /* DetailNote */ = {
+			isa = PBXGroup;
+			children = (
+				76744A342C21D3330031D99A /* DetailNoteView.swift */,
+				76EFA2162C26E48700FF209A /* DetailNoteViewModel.swift */,
+			);
+			path = DetailNote;
+			sourceTree = "<group>";
+		};
+		76EFA21B2C26EBEE00FF209A /* CreateNote */ = {
+			isa = PBXGroup;
+			children = (
+				76744A2E2C21D2FB0031D99A /* CreateNoteView.swift */,
+				76EFA2192C26EBEA00FF209A /* CreateNoteViewModel.swift */,
+			);
+			path = CreateNote;
+			sourceTree = "<group>";
+		};
+		76EFA21E2C26F10B00FF209A /* NoteView */ = {
+			isa = PBXGroup;
+			children = (
+				76744A2A2C21D2DD0031D99A /* NoteView.swift */,
+				76EFA21C2C26F10700FF209A /* NoteViewModel.swift */,
+			);
+			path = NoteView;
+			sourceTree = "<group>";
+		};
+		76EFA2212C26F12100FF209A /* EditNote */ = {
+			isa = PBXGroup;
+			children = (
+				762ACCD52C263F2B00D947AC /* EditNoteView.swift */,
+				76EFA21F2C26F11D00FF209A /* EditNoteViewModel.swift */,
+			);
+			path = EditNote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,10 +351,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76EFA21D2C26F10700FF209A /* NoteViewModel.swift in Sources */,
 				76AD39402C21DED90035CE98 /* DetailTripView.swift in Sources */,
 				76B81E572C232C11003B9B20 /* DestinationLocationsMapView.swift in Sources */,
 				76744A272C21D2BD0031D99A /* FinancialTripView.swift in Sources */,
-				76B81E5C2C232CA7003B9B20 /* LocationDeniedView.swift in Sources */,
 				762AD6FB2C22D8AD00118943 /* ExpenseCellView.swift in Sources */,
 				76B81E522C232BAE003B9B20 /* MapManager.swift in Sources */,
 				76B81E552C232BFA003B9B20 /* DestinationsListView.swift in Sources */,
@@ -307,16 +362,20 @@
 				76744A372C21D3460031D99A /* LaunchView.swift in Sources */,
 				764CD1352C23A77700A188C6 /* DefaultContentView.swift in Sources */,
 				76B81E5E2C234C27003B9B20 /* DestinationCellView.swift in Sources */,
+				762ACCD62C263F2B00D947AC /* EditNoteView.swift in Sources */,
+				76EFA2172C26E48700FF209A /* DetailNoteViewModel.swift in Sources */,
 				76744A3D2C21D37A0031D99A /* Trip.swift in Sources */,
 				763D3F6F2C25822C004F2A4B /* ShareSheet.swift in Sources */,
 				76B81E502C232B99003B9B20 /* LocationManager.swift in Sources */,
 				7664F41B2C24BC8F004BEBF3 /* EditTripView.swift in Sources */,
+				76EFA21A2C26EBEA00FF209A /* CreateNoteViewModel.swift in Sources */,
+				76EFA2202C26F11D00FF209A /* EditNoteViewModel.swift in Sources */,
 				76B81E4D2C232AE3003B9B20 /* MTPlacemark.swift in Sources */,
 				76744A252C21D2A30031D99A /* MainView.swift in Sources */,
 				76744A3B2C21D3680031D99A /* Note.swift in Sources */,
-				76744A192C21D27E0031D99A /* Item.swift in Sources */,
 				76744A332C21D3230031D99A /* CustomColors.swift in Sources */,
 				76744A3F2C21D3920031D99A /* Extension + View.swift in Sources */,
+				76EFA2142C26E28200FF209A /* NoteCellViewModel.swift in Sources */,
 				76744A152C21D27E0031D99A /* MyTravelApp.swift in Sources */,
 				76744A352C21D3330031D99A /* DetailNoteView.swift in Sources */,
 				76AD393E2C21DE0A0035CE98 /* CreateTripView.swift in Sources */,
@@ -327,6 +386,7 @@
 				76744A2D2C21D2EC0031D99A /* NoteCellView.swift in Sources */,
 				76744A292C21D2CB0031D99A /* TripCellView.swift in Sources */,
 				76B81E4B2C232AC2003B9B20 /* Destination.swift in Sources */,
+				76EFA2122C26E0FC00FF209A /* Extension + Date.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,7 +530,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -506,7 +566,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

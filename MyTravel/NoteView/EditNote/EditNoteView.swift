@@ -1,25 +1,27 @@
 //
-//  CreateNoteView.swift
+//  EditNoteView.swift
 //  MyTravel
 //
-//  Created by Владислав Соколов on 18.06.2024.
+//  Created by Владислав Соколов on 22.06.2024.
 //
 
 import SwiftUI
 import PhotosUI
 
-struct CreateNoteView: View {
+struct EditNoteView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.presentationMode) private var presentationMode
     
-    @State private var name = ""
-    @State private var detail = ""
-    @State private var annotation: Annotation = .flight
-    @State private var deadline = Date()
     @State private var isValid = false
     @State private var showingDeadlinePicker = false
     @State private var selectedImage: PhotosPickerItem? = nil
     @State private var imageData: Data? = nil
+    
+    @Binding var note: Note
+    
+    init(note: Binding<Note>) {
+        self._note = note
+    }
     
     let rows: [GridItem] = [
         GridItem(.fixed(30))
@@ -28,9 +30,9 @@ struct CreateNoteView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                CustomTextField(text: $name, field: "Name")
-                    .onChange(of: name) { _, newValue in
-                        isValid = !newValue.isEmpty && !detail.isEmpty
+                CustomTextField(text: $note.name, field: "Name")
+                    .onChange(of: note.name) { _, newValue in
+                        isValid = !newValue.isEmpty && !note.detail.isEmpty
                     }
                     .padding(.horizontal)
                 
@@ -38,7 +40,7 @@ struct CreateNoteView: View {
                     LazyHGrid(rows: rows, spacing: 10) {
                         ForEach(Annotation.allCases) { annotation in
                             Button(action: {
-                                self.annotation = annotation
+                                self.note.annotation = annotation
                             }) {
                                 Text(annotation.title)
                                     .font(.system(size: 14))
@@ -46,7 +48,7 @@ struct CreateNoteView: View {
                                     .padding(.vertical, 5)
                                     .background(.blue)
                                     .foregroundColor(.white)
-                                    .opacity(self.annotation == annotation ? 1 : 0.4)
+                                    .opacity(self.note.annotation == annotation ? 1 : 0.4)
                                     .cornerRadius(16)
                                     .offset(x: 16)
                             }
@@ -57,9 +59,9 @@ struct CreateNoteView: View {
                 .scrollIndicators(.hidden)
                 .padding(.bottom, 90)
                 
-                CustomTextField(text: $detail, field: "Detail")
-                    .onChange(of: detail) { _, newValue in
-                        isValid = !newValue.isEmpty && !name.isEmpty
+                CustomTextField(text: $note.detail, field: "Detail")
+                    .onChange(of: note.detail) { _, newValue in
+                        isValid = !newValue.isEmpty && !note.name.isEmpty
                     }
                     .padding(.horizontal)
                     .padding(.top, -90)
@@ -68,7 +70,7 @@ struct CreateNoteView: View {
                     showingDeadlinePicker.toggle()
                 }) {
                     HStack {
-                        Text("Deadline: \(deadline, formatter: dateFormatter)")
+                        Text("Deadline: \(note.deadline, formatter: dateFormatter)")
                             .foregroundStyle(.gray)
                         Spacer()
                         Image(systemName: "calendar")
@@ -108,34 +110,20 @@ struct CreateNoteView: View {
                 }
                 
                 Spacer()
-                
-                Button(action: {
-                    let newNote = Note(name: name, detail: detail, annotation: annotation, date: .now, image: imageData, deadline: deadline)
-                    modelContext.insert(newNote)
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("Add")
-                }
-                .frame(width: 350, height: 60)
-                .background(.blue)
-                .foregroundStyle(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .opacity(!isValid ? 0.3 : 1)
-                .disabled(!isValid)
-                .padding(.horizontal)
+
             }
-            .navigationTitle("New Note")
+            .navigationTitle("Edit Note")
             .background(.darkBlue)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Close") {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
             }
             .sheet(isPresented: $showingDeadlinePicker) {
                 VStack {
-                    DatePicker("Deadline", selection: $deadline, displayedComponents: .date)
+                    DatePicker("Deadline", selection: $note.deadline, displayedComponents: .date)
                         .datePickerStyle(GraphicalDatePickerStyle())
                         .padding()
                     Button("Done") {
@@ -154,6 +142,3 @@ struct CreateNoteView: View {
     }
 }
 
-#Preview {
-    CreateNoteView()
-}

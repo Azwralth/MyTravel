@@ -28,7 +28,7 @@ struct TripCellView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                         .padding([.leading, .top], 11)
                     Spacer()
-                    Text("\(formattedDate(trip.startDate)) - \(formattedDate(trip.endDate))")
+                    Text("\(trip.startDate.formattedDate()) - \(trip.endDate.formattedDate())")
                         .font(.system(size: 14))
                         .foregroundStyle(.gray)
                         .offset(y: 5)
@@ -46,12 +46,6 @@ struct TripCellView: View {
             .padding(.horizontal, 7)
         }
         .clipShape(RoundedRectangle(cornerRadius: 18))
-    }
-    
-    private func formattedDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        return formatter.string(from: date)
     }
 }
 

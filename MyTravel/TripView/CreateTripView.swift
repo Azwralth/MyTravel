@@ -140,7 +140,7 @@ struct CreateTripView: View {
     
     private func validateForm() {
         if let _ = Double(budget) {
-            isValid = !name.isEmpty && !budget.isEmpty && startDate <= endDate
+            isValid = startDate <= endDate
         } else {
             isValid = false
         }

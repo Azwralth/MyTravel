@@ -13,7 +13,6 @@ struct MyTravelApp: App {
     @State private var locationManager = LocationManager()
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
             Note.self,
             Trip.self,
             MTPlacemark.self,

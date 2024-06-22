@@ -10,17 +10,21 @@ import MapKit
 import SwiftData
 
 struct DestinationLocationsMapView: View {
+    @Environment(\.modelContext) private var modelContext
+    
     @State private var cameraPosition: MapCameraPosition = .automatic
     @State private var visibleRegion: MKCoordinateRegion?
     @State private var searchText = ""
     @State private var isManualMarker = false
     
     @State private var selectedPlacemark: MTPlacemark?
-    @Environment(\.modelContext) private var modelContext
+    
     
     @FocusState private var searchFieldFocus: Bool
+    
     @Query(filter: #Predicate<MTPlacemark> {$0.destination == nil})
     private var searchPlacemarks: [MTPlacemark]
+    
     var destination: Destination
     
     private var listPlacemarks: [MTPlacemark] {
@@ -182,14 +186,4 @@ struct DestinationLocationsMapView: View {
             MapManager.removeSearchResults(modelContext)
         }
     }
-}
-
-#Preview {
-    let container = Destination.preview
-    let fetchDescriptor = FetchDescriptor<Destination>()
-    let destination = try! container.mainContext.fetch(fetchDescriptor)[0]
-    return NavigationStack {
-        DestinationLocationsMapView(destination: destination)
-    }
-    .modelContainer(Destination.preview)
 }

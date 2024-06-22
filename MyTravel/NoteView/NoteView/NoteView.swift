@@ -9,13 +9,12 @@ import SwiftUI
 import SwiftData
 
 struct NoteView: View {
+    @StateObject var viewModel: NoteViewModel
     @Environment(\.modelContext) private var modelContext
     @Query private var notes: [Note]
-    @State private var showCreateNoteView = false
-    @State private var isSortedDate = false
     
     var sortedNotes: [Note] {
-        if isSortedDate {
+        if viewModel.isSortedDate {
             return notes.sorted(by: { $0.date > $1.date })
         } else {
             return notes
@@ -67,19 +66,19 @@ struct NoteView: View {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Button(action: {
                         withAnimation {
-                            isSortedDate.toggle()
+                            viewModel.isSortedDate.toggle()
                         }
                     }) {
-                        Image(systemName: isSortedDate ? "arrow.up.arrow.down.circle.fill" : "arrow.up.arrow.down.circle")
+                        Image(systemName: viewModel.showTextSort())
                     }
                     Button(action: {
-                        showCreateNoteView = true
+                        viewModel.showCreateNoteView = true
                     }) {
                         Image(systemName: "plus.circle.fill")
                     }
                 }
             }
-            .fullScreenCover(isPresented: $showCreateNoteView) {
+            .fullScreenCover(isPresented: $viewModel.showCreateNoteView) {
                 CreateNoteView()
             }
         }
@@ -87,5 +86,5 @@ struct NoteView: View {
 }
 
 #Preview {
-    NoteView()
+    NoteView(viewModel: NoteViewModel())
 }

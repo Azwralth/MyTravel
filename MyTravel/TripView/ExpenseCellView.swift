@@ -21,7 +21,7 @@ struct ExpenseCellView: View {
             CustomColors.customBlue
             VStack {
                 HStack {
-                    Text("\(formattedDate(expense.date))")
+                    Text(expense.date.formattedDate())
                         .font(.system(size: 12))
                         .foregroundStyle(.gray)
                         .padding(.leading, -3)
@@ -56,12 +56,6 @@ struct ExpenseCellView: View {
         }
         .frame(maxWidth: 170, maxHeight: 130)
         .clipShape(RoundedRectangle(cornerRadius: 18))
-    }
-    
-    private func formattedDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        return formatter.string(from: date)
     }
 }
 

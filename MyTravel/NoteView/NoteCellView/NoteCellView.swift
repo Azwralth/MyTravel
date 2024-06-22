@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct NoteCellView: View {
-    private let note: Note
+    @ObservedObject private var viewModel: NoteCellViewModel
     
     init(note: Note) {
-        self.note = note
+        self.viewModel = NoteCellViewModel(note: note)
     }
     
     var body: some View {
@@ -19,27 +19,35 @@ struct NoteCellView: View {
             CustomColors.customBlue
             VStack(alignment: .leading) {
                 HStack {
-                    Text(note.annotation.title)
+                    Text(viewModel.title)
                         .padding(.horizontal, 10)
                         .padding(.vertical, 5)
                         .background(.blue)
                         .foregroundStyle(.white)
                         .font(.system(size: 13))
                         .clipShape(RoundedRectangle(cornerRadius: 20))
-                    .padding([.leading, .top], 11)
+                        .padding([.leading, .top], 11)
+                    
                     Spacer()
-                    Text(note.date.formatted())
+                    
+                    Text(viewModel.formattedDate)
                         .font(.system(size: 14))
                         .foregroundStyle(.gray)
-                        .offset(y: 5)
+                        .offset(x: -10, y: 5)
                 }
                 HStack {
-                    Text(note.name)
+                    Text(viewModel.name)
                         .font(.title2)
                         .lineLimit(1)
                         .minimumScaleFactor(0.8)
                         .foregroundStyle(.white)
+                    
                     Spacer()
+                    
+                    Text(viewModel.daysWord())
+                        .font(.system(size: 14))
+                        .foregroundStyle(viewModel.textColor())
+                        .offset(y: 3)
                 }
                 .padding(.all, 10)
             }
