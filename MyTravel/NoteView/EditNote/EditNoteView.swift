@@ -12,6 +12,7 @@ struct EditNoteView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.presentationMode) private var presentationMode
     
+    @StateObject var viewModel = EditNoteViewModel()
     @State private var isValid = false
     @State private var showingDeadlinePicker = false
     @State private var selectedImage: PhotosPickerItem? = nil
@@ -101,8 +102,8 @@ struct EditNoteView: View {
                     }
                     .offset(x: -130)
                 
-                if let imageData {
-                    Image(uiImage: UIImage(data: imageData)!)
+                if let imageData = imageData, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 50, height: 50)

@@ -28,7 +28,7 @@ struct MyTravelApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView().navigationBarTitleTextColor(.white)
+            MainView()
         }
         .modelContainer(sharedModelContainer)
         .environment(locationManager)

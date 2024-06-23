@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct MainView: View {
+    
     var body: some View {
         TabView {
             Group {
@@ -16,7 +18,7 @@ struct MainView: View {
                         Image(systemName: "note")
                         Text("Notes")
                     }
-                FinancialTripView()
+                TripView()
                     .tabItem {
                         Image(systemName: "airplane")
                         Text("Trips")
@@ -31,8 +33,4 @@ struct MainView: View {
             .toolbarBackground(.darkBlue.opacity(0.8), for: .tabBar)
         }
     }
-}
-
-#Preview {
-    MainView()
 }

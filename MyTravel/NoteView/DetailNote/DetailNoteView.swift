@@ -44,21 +44,13 @@ struct DetailNoteView: View {
                         }
                     }
                     
-                    if viewModel.isShowingImage, let image = viewModel.note.image {
+                    if viewModel.isShowingImage, let uiImage = viewModel.uiImage {
                         withAnimation {
-                            Image(uiImage: UIImage(data: image)!)
+                            Image(uiImage: uiImage)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(maxHeight: 300)
                                 .padding(.top, 20)
-                        }
-                    }
-                    
-                    if viewModel.isShowingImage {
-                        Button {
-                            viewModel.isShowingShareSheet = true
-                        } label: {
-                            Text("Поделиться")
                         }
                     }
                     
@@ -68,6 +60,15 @@ struct DetailNoteView: View {
                 .navigationTitle(viewModel.note.name)
             }
             .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    if viewModel.isShowingImage {
+                        Button {
+                            viewModel.isShowingShareSheet = true
+                        } label: {
+                            Image(systemName: "square.and.arrow.up.on.square")
+                        }
+                    }
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         viewModel.isShowEditView.toggle()

@@ -40,8 +40,10 @@ class CreateNoteViewModel: ObservableObject {
     func loadImageData() {
         guard let selectedImage = selectedImage else { return }
         selectedImage.loadTransferable(type: Data.self) { result in
-            if case .success(let data) = result {
-                self.imageData = data
+            DispatchQueue.main.async {
+                if case .success(let data) = result {
+                    self.imageData = data
+                }
             }
         }
     }

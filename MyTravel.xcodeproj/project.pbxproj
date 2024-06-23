@@ -10,6 +10,12 @@
 		762ACCD62C263F2B00D947AC /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762ACCD52C263F2B00D947AC /* EditNoteView.swift */; };
 		762AD6F82C22C75800118943 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762AD6F72C22C75800118943 /* CustomTextField.swift */; };
 		762AD6FB2C22D8AD00118943 /* ExpenseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */; };
+		7631E3E32C2796CD0087EA71 /* CreateTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631E3E22C2796CD0087EA71 /* CreateTripViewModel.swift */; };
+		7631E3E62C2796E50087EA71 /* ExpenseCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631E3E52C2796E50087EA71 /* ExpenseCellViewModel.swift */; };
+		7631E3E92C2796F60087EA71 /* DetailTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631E3E82C2796F60087EA71 /* DetailTripViewModel.swift */; };
+		7631E3EC2C2797070087EA71 /* EditTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631E3EB2C2797070087EA71 /* EditTripViewModel.swift */; };
+		7631E3EF2C2797190087EA71 /* TripCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631E3EE2C2797190087EA71 /* TripCellViewModel.swift */; };
+		7631E3F22C2797460087EA71 /* TripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7631E3F12C2797460087EA71 /* TripViewModel.swift */; };
 		763D3F6F2C25822C004F2A4B /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D3F6E2C25822C004F2A4B /* ShareSheet.swift */; };
 		764CD1352C23A77700A188C6 /* DefaultContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764CD1342C23A77700A188C6 /* DefaultContentView.swift */; };
 		7664F41B2C24BC8F004BEBF3 /* EditTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */; };
@@ -17,7 +23,7 @@
 		76744A1B2C21D27F0031D99A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76744A1A2C21D27F0031D99A /* Assets.xcassets */; };
 		76744A1E2C21D27F0031D99A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76744A1D2C21D27F0031D99A /* Preview Assets.xcassets */; };
 		76744A252C21D2A30031D99A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A242C21D2A30031D99A /* MainView.swift */; };
-		76744A272C21D2BD0031D99A /* FinancialTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A262C21D2BD0031D99A /* FinancialTripView.swift */; };
+		76744A272C21D2BD0031D99A /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A262C21D2BD0031D99A /* TripView.swift */; };
 		76744A292C21D2CB0031D99A /* TripCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A282C21D2CB0031D99A /* TripCellView.swift */; };
 		76744A2B2C21D2DD0031D99A /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A2A2C21D2DD0031D99A /* NoteView.swift */; };
 		76744A2D2C21D2EC0031D99A /* NoteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A2C2C21D2EC0031D99A /* NoteCellView.swift */; };
@@ -51,6 +57,12 @@
 		762ACCD52C263F2B00D947AC /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
 		762AD6F72C22C75800118943 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCellView.swift; sourceTree = "<group>"; };
+		7631E3E22C2796CD0087EA71 /* CreateTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewModel.swift; sourceTree = "<group>"; };
+		7631E3E52C2796E50087EA71 /* ExpenseCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCellViewModel.swift; sourceTree = "<group>"; };
+		7631E3E82C2796F60087EA71 /* DetailTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTripViewModel.swift; sourceTree = "<group>"; };
+		7631E3EB2C2797070087EA71 /* EditTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripViewModel.swift; sourceTree = "<group>"; };
+		7631E3EE2C2797190087EA71 /* TripCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCellViewModel.swift; sourceTree = "<group>"; };
+		7631E3F12C2797460087EA71 /* TripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewModel.swift; sourceTree = "<group>"; };
 		763D3F6E2C25822C004F2A4B /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		764CD1342C23A77700A188C6 /* DefaultContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultContentView.swift; sourceTree = "<group>"; };
 		7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripView.swift; sourceTree = "<group>"; };
@@ -59,7 +71,7 @@
 		76744A1A2C21D27F0031D99A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76744A1D2C21D27F0031D99A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		76744A242C21D2A30031D99A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		76744A262C21D2BD0031D99A /* FinancialTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialTripView.swift; sourceTree = "<group>"; };
+		76744A262C21D2BD0031D99A /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
 		76744A282C21D2CB0031D99A /* TripCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCellView.swift; sourceTree = "<group>"; };
 		76744A2A2C21D2DD0031D99A /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		76744A2C2C21D2EC0031D99A /* NoteCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCellView.swift; sourceTree = "<group>"; };
@@ -110,6 +122,60 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		7631E3E42C2796D00087EA71 /* CreateTrip */ = {
+			isa = PBXGroup;
+			children = (
+				76AD393D2C21DE0A0035CE98 /* CreateTripView.swift */,
+				7631E3E22C2796CD0087EA71 /* CreateTripViewModel.swift */,
+			);
+			path = CreateTrip;
+			sourceTree = "<group>";
+		};
+		7631E3E72C2796E80087EA71 /* ExpenseCell */ = {
+			isa = PBXGroup;
+			children = (
+				762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */,
+				7631E3E52C2796E50087EA71 /* ExpenseCellViewModel.swift */,
+			);
+			path = ExpenseCell;
+			sourceTree = "<group>";
+		};
+		7631E3EA2C2796F90087EA71 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				76AD393F2C21DED90035CE98 /* DetailTripView.swift */,
+				7631E3E82C2796F60087EA71 /* DetailTripViewModel.swift */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		7631E3ED2C27970B0087EA71 /* EditTrip */ = {
+			isa = PBXGroup;
+			children = (
+				7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */,
+				7631E3EB2C2797070087EA71 /* EditTripViewModel.swift */,
+			);
+			path = EditTrip;
+			sourceTree = "<group>";
+		};
+		7631E3F02C27971C0087EA71 /* TripCell */ = {
+			isa = PBXGroup;
+			children = (
+				76744A282C21D2CB0031D99A /* TripCellView.swift */,
+				7631E3EE2C2797190087EA71 /* TripCellViewModel.swift */,
+			);
+			path = TripCell;
+			sourceTree = "<group>";
+		};
+		7631E3F32C2797490087EA71 /* TripView */ = {
+			isa = PBXGroup;
+			children = (
+				76744A262C21D2BD0031D99A /* TripView.swift */,
+				7631E3F12C2797460087EA71 /* TripViewModel.swift */,
+			);
+			path = TripView;
+			sourceTree = "<group>";
+		};
 		76744A082C21D27E0031D99A = {
 			isa = PBXGroup;
 			children = (
@@ -131,16 +197,16 @@
 			children = (
 				76744A142C21D27E0031D99A /* MyTravelApp.swift */,
 				76744A242C21D2A30031D99A /* MainView.swift */,
-				76B81E532C232BE4003B9B20 /* DestinationTab */,
-				76B81E582C232C83003B9B20 /* SharedViews */,
-				762AD6F92C22C79C00118943 /* Views */,
 				76744A442C21D4A30031D99A /* TripView */,
 				76744A432C21D47A0031D99A /* NoteView */,
+				76B81E582C232C83003B9B20 /* SharedViews */,
+				76B81E532C232BE4003B9B20 /* DestinationTab */,
 				76744A422C21D4650031D99A /* LaunchView */,
 				76744A402C21D4310031D99A /* Models */,
 				76744A1C2C21D27F0031D99A /* Preview Content */,
 				76744A412C21D4410031D99A /* Extension */,
 				76B81E4E2C232B7D003B9B20 /* Services */,
+				762AD6F92C22C79C00118943 /* Views */,
 			);
 			path = MyTravel;
 			sourceTree = "<group>";
@@ -199,12 +265,12 @@
 		76744A442C21D4A30031D99A /* TripView */ = {
 			isa = PBXGroup;
 			children = (
-				76744A262C21D2BD0031D99A /* FinancialTripView.swift */,
-				76744A282C21D2CB0031D99A /* TripCellView.swift */,
-				76AD393D2C21DE0A0035CE98 /* CreateTripView.swift */,
-				762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */,
-				76AD393F2C21DED90035CE98 /* DetailTripView.swift */,
-				7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */,
+				7631E3F32C2797490087EA71 /* TripView */,
+				7631E3F02C27971C0087EA71 /* TripCell */,
+				7631E3E42C2796D00087EA71 /* CreateTrip */,
+				7631E3E72C2796E80087EA71 /* ExpenseCell */,
+				7631E3EA2C2796F90087EA71 /* DetailView */,
+				7631E3ED2C27970B0087EA71 /* EditTrip */,
 			);
 			path = TripView;
 			sourceTree = "<group>";
@@ -354,25 +420,30 @@
 				76EFA21D2C26F10700FF209A /* NoteViewModel.swift in Sources */,
 				76AD39402C21DED90035CE98 /* DetailTripView.swift in Sources */,
 				76B81E572C232C11003B9B20 /* DestinationLocationsMapView.swift in Sources */,
-				76744A272C21D2BD0031D99A /* FinancialTripView.swift in Sources */,
+				76744A272C21D2BD0031D99A /* TripView.swift in Sources */,
 				762AD6FB2C22D8AD00118943 /* ExpenseCellView.swift in Sources */,
 				76B81E522C232BAE003B9B20 /* MapManager.swift in Sources */,
 				76B81E552C232BFA003B9B20 /* DestinationsListView.swift in Sources */,
+				7631E3F22C2797460087EA71 /* TripViewModel.swift in Sources */,
 				76744A2F2C21D2FB0031D99A /* CreateNoteView.swift in Sources */,
 				76744A372C21D3460031D99A /* LaunchView.swift in Sources */,
 				764CD1352C23A77700A188C6 /* DefaultContentView.swift in Sources */,
 				76B81E5E2C234C27003B9B20 /* DestinationCellView.swift in Sources */,
+				7631E3E32C2796CD0087EA71 /* CreateTripViewModel.swift in Sources */,
 				762ACCD62C263F2B00D947AC /* EditNoteView.swift in Sources */,
 				76EFA2172C26E48700FF209A /* DetailNoteViewModel.swift in Sources */,
 				76744A3D2C21D37A0031D99A /* Trip.swift in Sources */,
 				763D3F6F2C25822C004F2A4B /* ShareSheet.swift in Sources */,
 				76B81E502C232B99003B9B20 /* LocationManager.swift in Sources */,
+				7631E3E92C2796F60087EA71 /* DetailTripViewModel.swift in Sources */,
+				7631E3EF2C2797190087EA71 /* TripCellViewModel.swift in Sources */,
 				7664F41B2C24BC8F004BEBF3 /* EditTripView.swift in Sources */,
 				76EFA21A2C26EBEA00FF209A /* CreateNoteViewModel.swift in Sources */,
 				76EFA2202C26F11D00FF209A /* EditNoteViewModel.swift in Sources */,
 				76B81E4D2C232AE3003B9B20 /* MTPlacemark.swift in Sources */,
 				76744A252C21D2A30031D99A /* MainView.swift in Sources */,
 				76744A3B2C21D3680031D99A /* Note.swift in Sources */,
+				7631E3E62C2796E50087EA71 /* ExpenseCellViewModel.swift in Sources */,
 				76744A332C21D3230031D99A /* CustomColors.swift in Sources */,
 				76744A3F2C21D3920031D99A /* Extension + View.swift in Sources */,
 				76EFA2142C26E28200FF209A /* NoteCellViewModel.swift in Sources */,
@@ -383,6 +454,7 @@
 				762AD6F82C22C75800118943 /* CustomTextField.swift in Sources */,
 				76744A392C21D3580031D99A /* LaunchViewModel.swift in Sources */,
 				76744A2B2C21D2DD0031D99A /* NoteView.swift in Sources */,
+				7631E3EC2C2797070087EA71 /* EditTripViewModel.swift in Sources */,
 				76744A2D2C21D2EC0031D99A /* NoteCellView.swift in Sources */,
 				76744A292C21D2CB0031D99A /* TripCellView.swift in Sources */,
 				76B81E4B2C232AC2003B9B20 /* Destination.swift in Sources */,

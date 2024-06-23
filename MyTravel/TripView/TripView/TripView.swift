@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct FinancialTripView: View {
+struct TripView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var trips: [Trip]
     @State private var showCreateTripView = false
@@ -76,6 +76,6 @@ struct FinancialTripView: View {
 
 
 #Preview {
-    FinancialTripView()
+    TripView()
 }
 

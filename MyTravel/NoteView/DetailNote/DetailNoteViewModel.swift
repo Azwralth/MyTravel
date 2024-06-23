@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 final class DetailNoteViewModel: ObservableObject {
     @Published var note: Note
     @Published var isShowingImage = false
     @Published var isShowingShareSheet = false
     @Published var isShowEditView = false
+    @Published var isImageExpanded = false
     
     init(note: Note) {
         self.note = note
@@ -25,12 +27,21 @@ final class DetailNoteViewModel: ObservableObject {
         note.detail
     }
     
+    var shouldShowImage: Bool {
+        !(note.image?.isEmpty ?? true)
+    }
+    
+    func toggleImage() {
+        isShowingImage.toggle()
+    }
+    
     var imageButtonText: String {
         isShowingImage ? "Скрыть изображения" : "Показать изображение"
     }
     
-    var shareButtonText: String {
-        "Поделиться"
+    var uiImage: UIImage? {
+        guard let imageData = note.image else { return nil }
+        return UIImage(data: imageData)
     }
     
     var formattedDate: String {
