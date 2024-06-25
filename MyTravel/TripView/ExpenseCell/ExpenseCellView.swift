@@ -37,7 +37,7 @@ struct ExpenseCellView: View {
                     Text(expense.name)
                         .padding([.top, .leading], -4)
                         .foregroundStyle(.white)
-                        .lineLimit(nil)
+                        .lineLimit(0)
                         .minimumScaleFactor(0.7)
                     .font(.system(size: 20))
                     Spacer()
@@ -54,7 +54,6 @@ struct ExpenseCellView: View {
             }
             .padding(.horizontal, 20)
         }
-        .frame(maxWidth: 170, maxHeight: 130)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
 }

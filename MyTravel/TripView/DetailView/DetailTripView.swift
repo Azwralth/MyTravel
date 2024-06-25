@@ -50,7 +50,7 @@ struct DetailTripView: View {
                     .padding(.bottom, 20)
                 
                 ScrollView {
-                    LazyVGrid(columns: [GridItem(.fixed(170), spacing: 15), GridItem(.fixed(170))], spacing: 15) {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 190, maximum: 250)), GridItem(.adaptive(minimum: 190, maximum: 250))], spacing: 8) {
                         ForEach(trip.expense ?? []) { expense in
                             ExpenseCellView(expense: expense) {
                                 expenseToDelete = expense
