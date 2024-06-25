@@ -87,13 +87,14 @@ struct CreateNoteView: View {
                     }) {
                         Text("Add")
                     }
-                    .frame(width: 360, height: 60)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical)
                     .background(.blue)
                     .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
                     .opacity(!viewModel.isValid ? 0.3 : 1)
                     .disabled(!viewModel.isValid)
-                    .padding(.horizontal)
+                    .padding()
                 }
             }
             .navigationTitle("New Note")

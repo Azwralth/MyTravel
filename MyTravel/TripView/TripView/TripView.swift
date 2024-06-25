@@ -43,7 +43,7 @@ struct TripView: View {
                 } else {
                     VStack {
                         Spacer()
-                        DefaultContentView(name: "Нет доступных путешествий")
+                        DefaultContentView(name: "No available trips")
                         Spacer()
                     }
                 }

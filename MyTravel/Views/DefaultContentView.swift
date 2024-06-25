@@ -23,7 +23,7 @@ struct DefaultContentView: View {
                     .foregroundColor(.gray)
                     .font(.title2).bold()
                     .padding(.bottom, 10)
-                Text("Нажмите на \(Image(systemName: "plus.circle.fill")) чтобы начать")
+                Text("Tap \(Image(systemName: "plus.circle.fill")) to begin")
                     .foregroundColor(.gray)
                     .font(.headline)
             }

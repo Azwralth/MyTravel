@@ -3,13 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		762ACCD62C263F2B00D947AC /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762ACCD52C263F2B00D947AC /* EditNoteView.swift */; };
 		762AD6F82C22C75800118943 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762AD6F72C22C75800118943 /* CustomTextField.swift */; };
 		762AD6FB2C22D8AD00118943 /* ExpenseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */; };
+		7631FE822C2AFABC00055FA2 /* appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 7631FE7E2C2AFABC00055FA2 /* appstore.png */; };
+		7631FE832C2AFABC00055FA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7631FE7F2C2AFABC00055FA2 /* Assets.xcassets */; };
+		7631FE842C2AFABC00055FA2 /* playstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 7631FE802C2AFABC00055FA2 /* playstore.png */; };
 		763D3F6F2C25822C004F2A4B /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D3F6E2C25822C004F2A4B /* ShareSheet.swift */; };
 		764CD1352C23A77700A188C6 /* DefaultContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764CD1342C23A77700A188C6 /* DefaultContentView.swift */; };
 		7664F41B2C24BC8F004BEBF3 /* EditTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */; };
@@ -49,6 +52,9 @@
 		762ACCD52C263F2B00D947AC /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
 		762AD6F72C22C75800118943 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCellView.swift; sourceTree = "<group>"; };
+		7631FE7E2C2AFABC00055FA2 /* appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appstore.png; sourceTree = "<group>"; };
+		7631FE7F2C2AFABC00055FA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7631FE802C2AFABC00055FA2 /* playstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playstore.png; sourceTree = "<group>"; };
 		763D3F6E2C25822C004F2A4B /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		764CD1342C23A77700A188C6 /* DefaultContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultContentView.swift; sourceTree = "<group>"; };
 		7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripView.swift; sourceTree = "<group>"; };
@@ -154,6 +160,16 @@
 			path = TripView;
 			sourceTree = "<group>";
 		};
+		7631FE812C2AFABC00055FA2 /* AppIcons */ = {
+			isa = PBXGroup;
+			children = (
+				7631FE7E2C2AFABC00055FA2 /* appstore.png */,
+				7631FE7F2C2AFABC00055FA2 /* Assets.xcassets */,
+				7631FE802C2AFABC00055FA2 /* playstore.png */,
+			);
+			path = AppIcons;
+			sourceTree = "<group>";
+		};
 		76744A082C21D27E0031D99A = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +200,7 @@
 				76744A412C21D4410031D99A /* Extension */,
 				76B81E4E2C232B7D003B9B20 /* Services */,
 				762AD6F92C22C79C00118943 /* Views */,
+				7631FE812C2AFABC00055FA2 /* AppIcons */,
 			);
 			path = MyTravel;
 			sourceTree = "<group>";
@@ -351,7 +368,7 @@
 				};
 			};
 			buildConfigurationList = 76744A0C2C21D27E0031D99A /* Build configuration list for PBXProject "MyTravel" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -374,7 +391,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				76744A1E2C21D27F0031D99A /* Preview Assets.xcassets in Resources */,
+				7631FE822C2AFABC00055FA2 /* appstore.png in Resources */,
+				7631FE832C2AFABC00055FA2 /* Assets.xcassets in Resources */,
 				76744A1B2C21D27F0031D99A /* Assets.xcassets in Resources */,
+				7631FE842C2AFABC00055FA2 /* playstore.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +449,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -477,7 +499,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -492,7 +514,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -534,7 +558,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

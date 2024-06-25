@@ -51,7 +51,7 @@ struct NoteView: View {
                 } else {
                         VStack {
                             Spacer()
-                            DefaultContentView(name: "Нет доступных заметок")
+                            DefaultContentView(name: "No available notes")
                             Spacer()
                         }
                 }

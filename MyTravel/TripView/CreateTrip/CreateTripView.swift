@@ -88,12 +88,14 @@ struct CreateTripView: View {
                     }) {
                         Text("Add")
                     }
-                    .frame(width: 350, height: 60)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical)
                     .background(.blue)
                     .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
                     .opacity(!isValid ? 0.3 : 1)
                     .disabled(!isValid)
+                    .padding()
                 }
             }
             .background(CustomColors.darkBlue)

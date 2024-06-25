@@ -43,7 +43,7 @@ struct DestinationsListView: View {
                         .scrollContentBackground(.hidden)
                         .padding(.leading, -5)
                     } else {
-                        DefaultContentView(name: "Нет доступных маршрутов")
+                        DefaultContentView(name: "No routes available")
                     }
                 }
                 
