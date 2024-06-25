@@ -72,7 +72,7 @@ struct CreateNoteView: View {
                     }
                     .padding(.leading, 20)
                     .frame(minHeight: 65)
-                    .background(.darkBlue)
+                    .background(CustomColors.darkBlue)
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(.gray, lineWidth: 1))
                     .padding(.horizontal)
                     .padding(.bottom, 10)
@@ -97,7 +97,7 @@ struct CreateNoteView: View {
                 }
             }
             .navigationTitle("New Note")
-            .background(Color.darkBlue)
+            .background(CustomColors.darkBlue)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Close") {

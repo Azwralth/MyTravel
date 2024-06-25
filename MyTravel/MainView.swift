@@ -30,7 +30,7 @@ struct MainView: View {
                     }
             }
             .toolbarBackground(.visible, for: .tabBar)
-            .toolbarBackground(.darkBlue.opacity(0.8), for: .tabBar)
+            .toolbarBackground(CustomColors.darkBlue.opacity(0.8), for: .tabBar)
         }
     }
 }

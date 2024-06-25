@@ -71,7 +71,7 @@ struct CreateTripView: View {
                     }
                     .padding(.leading, 20)
                     .frame(minHeight: 65)
-                    .background(Color.darkBlue)
+                    .background(CustomColors.darkBlue)
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray, lineWidth: 1))
                     .padding(.horizontal)
                     .padding(.bottom, 25)

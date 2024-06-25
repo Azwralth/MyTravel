@@ -47,7 +47,7 @@ struct DestinationsListView: View {
                     }
                 }
                 
-                .background(.darkBlue)
+                .background(CustomColors.darkBlue)
                 .navigationTitle("My Destinations")
                 .toolbar {
                     Button {

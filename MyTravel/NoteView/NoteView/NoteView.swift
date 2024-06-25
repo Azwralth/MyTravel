@@ -56,7 +56,7 @@ struct NoteView: View {
                         }
                 }
             }
-            .background(.darkBlue)
+            .background(CustomColors.darkBlue)
             .ignoresSafeArea(.keyboard)
             .navigationTitle("Notes")
             .toolbar {

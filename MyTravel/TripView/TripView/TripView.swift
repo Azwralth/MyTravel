@@ -48,7 +48,7 @@ struct TripView: View {
                     }
                 }
             }
-            .background(.darkBlue)
+            .background(CustomColors.darkBlue)
             .navigationTitle("Trips")
             .toolbar {
                 ToolbarItem {
