@@ -19,7 +19,7 @@ struct TripCellView: View {
             CustomColors.customBlue
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Бюджет - \(trip.budget.formatted())")
+                    Text("Budget - \(trip.budget.formatted())")
                         .padding(.horizontal, 10)
                         .padding(.vertical, 5)
                         .background(.blue)

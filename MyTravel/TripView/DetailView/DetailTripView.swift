@@ -38,12 +38,12 @@ struct DetailTripView: View {
                     .foregroundColor(.white)
                     .cornerRadius(16)
                 HStack(alignment: .firstTextBaseline, spacing: 0) {
-                    Text("Бюджет - \(trip.budget.formatted())")
+                    Text("Budget - \(trip.budget.formatted())")
                         .foregroundStyle(.white)
                         .font(.largeTitle)
                     Spacer()
                 }
-                Text("Остаток \(currentBalanceTrip())")
+                Text("Balance \(currentBalanceTrip())")
                     .foregroundStyle(.gray)
                     .font(.system(size: 14))
                     .padding(.leading, 2)
