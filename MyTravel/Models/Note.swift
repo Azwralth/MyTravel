@@ -14,15 +14,13 @@ final class Note {
     var detail: String
     var annotation: Annotation
     var date: Date
-    var image: Data?
     var deadline: Date
     
-    init(name: String, detail: String, annotation: Annotation, date: Date, image: Data?, deadline: Date) {
+    init(name: String, detail: String, annotation: Annotation, date: Date, deadline: Date) {
         self.name = name
         self.detail = detail
         self.annotation = annotation
         self.date = date
-        self.image = image
         self.deadline = deadline
     }
 }

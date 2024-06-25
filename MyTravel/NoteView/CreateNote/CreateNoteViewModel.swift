@@ -15,8 +15,6 @@ class CreateNoteViewModel: ObservableObject {
     @Published var annotation: Annotation = .flight
     @Published var deadline = Date()
     @Published var isValid = false
-    @Published var selectedImage: PhotosPickerItem? = nil
-    @Published var imageData: Data? = nil
     @Published var isShowDeadlinePicker = false
     
     init() {
@@ -32,20 +30,9 @@ class CreateNoteViewModel: ObservableObject {
     }
     
     func saveNote(modelContext: ModelContext, presentationMode: Binding<PresentationMode>) {
-        let newNote = Note(name: name, detail: detail, annotation: annotation, date: .now, image: imageData, deadline: deadline)
+        let newNote = Note(name: name, detail: detail, annotation: annotation, date: .now, deadline: deadline)
         modelContext.insert(newNote)
         presentationMode.wrappedValue.dismiss()
-    }
-    
-    func loadImageData() {
-        guard let selectedImage = selectedImage else { return }
-        selectedImage.loadTransferable(type: Data.self) { result in
-            DispatchQueue.main.async {
-                if case .success(let data) = result {
-                    self.imageData = data
-                }
-            }
-        }
     }
     
     var dateFormatter: DateFormatter {

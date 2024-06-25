@@ -36,39 +36,12 @@ struct DetailNoteView: View {
                         Spacer()
                     }
                     
-                    if !(viewModel.note.image?.isEmpty ?? true) {
-                        Button {
-                            viewModel.isShowingImage.toggle()
-                        } label: {
-                            Text(viewModel.imageButtonText)
-                        }
-                    }
-                    
-                    if viewModel.isShowingImage, let uiImage = viewModel.uiImage {
-                        withAnimation {
-                            Image(uiImage: uiImage)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(maxHeight: 300)
-                                .padding(.top, 20)
-                        }
-                    }
-                    
                     Spacer()
                 }
                 .padding()
                 .navigationTitle(viewModel.note.name)
             }
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    if viewModel.isShowingImage {
-                        Button {
-                            viewModel.isShowingShareSheet = true
-                        } label: {
-                            Image(systemName: "square.and.arrow.up.on.square")
-                        }
-                    }
-                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         viewModel.isShowEditView.toggle()
@@ -80,15 +53,10 @@ struct DetailNoteView: View {
             .sheet(isPresented: $viewModel.isShowEditView) {
                 EditNoteView(note: $viewModel.note)
             }
-            .sheet(isPresented: $viewModel.isShowingShareSheet) {
-                if let imageData = viewModel.note.image, let uiImage = UIImage(data: imageData) {
-                    ShareSheet(activityItems: [uiImage])
-                }
-            }
         }
     }
 }
 
 #Preview {
-    DetailNoteView(note: Note(name: "Страховка", detail: "найти и оплатить страховку потом отдать ее страховому агенту затем еще что-то и еще что-то а потом еще", annotation: .other, date: .now, image: nil, deadline: .distantFuture))
+    DetailNoteView(note: Note(name: "Страховка", detail: "найти и оплатить страховку потом отдать ее страховому агенту затем еще что-то и еще что-то а потом еще", annotation: .other, date: .now, deadline: .distantFuture))
 }

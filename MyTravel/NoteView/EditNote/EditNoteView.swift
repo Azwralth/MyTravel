@@ -87,45 +87,6 @@ struct EditNoteView: View {
                 .padding(.bottom, 10)
                 .padding(.top, -10)
                 
-                PhotosPicker("Add Image", selection: $selectedImage, matching: .images)
-                    .onChange(of: selectedImage) { _, newValue in
-                        if let selectedImage = selectedImage {
-                            selectedImage.loadTransferable(type: Data.self) { result in
-                                switch result {
-                                case .success(let data):
-                                    imageData = data
-                                case .failure(let error):
-                                    print(error)
-                                }
-                            }
-                        }
-                    }
-                    .offset(x: -130)
-                
-                HStack {
-                    if let image = note.image, let uiImage = UIImage(data: image) {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 50, height: 50)
-                            .padding(.leading, -165)
-                    }
-                    Spacer()
-                    Button(action: {}) {
-                        Image(systemName: "xmark")
-                            .offset(x: -15, y: -20)
-                    }
-                }
-                
-                
-                if let imageData = imageData, let uiImage = UIImage(data: imageData) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 50, height: 50)
-                        .padding(.leading, -165)
-                }
-                
                 Spacer()
 
             }

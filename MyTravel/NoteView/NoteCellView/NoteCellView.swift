@@ -58,5 +58,5 @@ struct NoteCellView: View {
 }
 
 #Preview {
-    NoteCellView(note: Note(name: "name", detail: "detail", annotation: Annotation.hotel, date: .now, image: nil, deadline: .distantFuture))
+    NoteCellView(note: Note(name: "name", detail: "detail", annotation: Annotation.hotel, date: .now, deadline: .distantFuture))
 }

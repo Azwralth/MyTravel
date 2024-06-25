@@ -78,29 +78,7 @@ struct CreateNoteView: View {
                     .padding(.bottom, 10)
                     .padding(.top, -10)
                     
-                    PhotosPicker("Add Image", selection: $viewModel.selectedImage, matching: .images)
-                        .onChange(of: viewModel.selectedImage) { _, newValue in
-                            if let selectedImage = viewModel.selectedImage {
-                                selectedImage.loadTransferable(type: Data.self) { result in
-                                    switch result {
-                                    case .success(let data):
-                                        viewModel.imageData = data
-                                    case .failure(let error):
-                                        print(error)
-                                    }
-                                }
-                            }
-                        }
-                        .padding(.bottom, 10)
-                        .offset(x: -140)
                     
-                    if let imageData = viewModel.imageData {
-                        Image(uiImage: UIImage(data: imageData)!)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 50, height: 50)
-                            .padding(.leading, -165)
-                    }
                     
                     Spacer()
                     
