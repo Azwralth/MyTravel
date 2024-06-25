@@ -71,7 +71,7 @@ struct EditNoteView: View {
                     showingDeadlinePicker.toggle()
                 }) {
                     HStack {
-                        Text("Deadline: \(note.deadline, formatter: dateFormatter)")
+                        Text("Deadline: \(note.deadline, formatter: viewModel.dateFormatter)")
                             .foregroundStyle(.gray)
                         Spacer()
                         Image(systemName: "calendar")
@@ -101,6 +101,22 @@ struct EditNoteView: View {
                         }
                     }
                     .offset(x: -130)
+                
+                HStack {
+                    if let image = note.image, let uiImage = UIImage(data: image) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                            .padding(.leading, -165)
+                    }
+                    Spacer()
+                    Button(action: {}) {
+                        Image(systemName: "xmark")
+                            .offset(x: -15, y: -20)
+                    }
+                }
+                
                 
                 if let imageData = imageData, let uiImage = UIImage(data: imageData) {
                     Image(uiImage: uiImage)
@@ -134,12 +150,6 @@ struct EditNoteView: View {
                 }
             }
         }
-    }
-    
-    private var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        return formatter
     }
 }
 

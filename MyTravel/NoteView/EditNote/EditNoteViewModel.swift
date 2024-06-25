@@ -13,4 +13,10 @@ final class EditNoteViewModel: ObservableObject {
     @Published var showingDeadlinePicker = false
     @Published var selectedImage: PhotosPickerItem? = nil
     @Published var imageData: Data? = nil
+    
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter
+    }
 }
