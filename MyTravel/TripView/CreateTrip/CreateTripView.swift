@@ -96,7 +96,7 @@ struct CreateTripView: View {
                     .disabled(!isValid)
                 }
             }
-            .background(Color.darkBlue)
+            .background(CustomColors.darkBlue)
             .navigationTitle("New Trip")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

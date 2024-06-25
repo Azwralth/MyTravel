@@ -36,7 +36,7 @@ struct MyTravelApp: App {
     
     init() {
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor.darkBlue
+        appearance.backgroundColor = UIColor(CustomColors.darkBlue)
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
