@@ -49,14 +49,11 @@ struct NoteView: View {
                     .scrollContentBackground(.hidden)
                     .padding(.leading, -5)
                 } else {
-                    ScrollView {
                         VStack {
                             Spacer()
                             DefaultContentView(name: "Нет доступных заметок")
-                                .offset(y: 200)
                             Spacer()
                         }
-                    }
                 }
             }
             .background(.darkBlue)
