@@ -57,7 +57,7 @@
 		763D3F6E2C25822C004F2A4B /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		764CD1342C23A77700A188C6 /* DefaultContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultContentView.swift; sourceTree = "<group>"; };
 		7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripView.swift; sourceTree = "<group>"; };
-		76744A112C21D27E0031D99A /* MyTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		76744A112C21D27E0031D99A /* GoTrip - Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GoTrip - Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76744A142C21D27E0031D99A /* MyTravelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTravelApp.swift; sourceTree = "<group>"; };
 		76744A1D2C21D27F0031D99A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		76744A242C21D2A30031D99A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 		76744A122C21D27E0031D99A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				76744A112C21D27E0031D99A /* MyTravel.app */,
+				76744A112C21D27E0031D99A /* GoTrip - Planner.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -332,9 +332,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		76744A102C21D27E0031D99A /* MyTravel */ = {
+		76744A102C21D27E0031D99A /* GoTrip - Planner */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76744A212C21D27F0031D99A /* Build configuration list for PBXNativeTarget "MyTravel" */;
+			buildConfigurationList = 76744A212C21D27F0031D99A /* Build configuration list for PBXNativeTarget "GoTrip - Planner" */;
 			buildPhases = (
 				76744A0D2C21D27E0031D99A /* Sources */,
 				76744A0E2C21D27E0031D99A /* Frameworks */,
@@ -344,9 +344,9 @@
 			);
 			dependencies = (
 			);
-			name = MyTravel;
+			name = "GoTrip - Planner";
 			productName = MyTravel;
-			productReference = 76744A112C21D27E0031D99A /* MyTravel.app */;
+			productReference = 76744A112C21D27E0031D99A /* GoTrip - Planner.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -364,7 +364,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 76744A0C2C21D27E0031D99A /* Build configuration list for PBXProject "MyTravel" */;
+			buildConfigurationList = 76744A0C2C21D27E0031D99A /* Build configuration list for PBXProject "GoTrip - Planner" */;
 			compatibilityVersion = "Xcode 15.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -377,7 +377,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				76744A102C21D27E0031D99A /* MyTravel */,
+				76744A102C21D27E0031D99A /* GoTrip - Planner */,
 			);
 		};
 /* End PBXProject section */
@@ -641,7 +641,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		76744A0C2C21D27E0031D99A /* Build configuration list for PBXProject "MyTravel" */ = {
+		76744A0C2C21D27E0031D99A /* Build configuration list for PBXProject "GoTrip - Planner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76744A1F2C21D27F0031D99A /* Debug */,
@@ -650,7 +650,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76744A212C21D27F0031D99A /* Build configuration list for PBXNativeTarget "MyTravel" */ = {
+		76744A212C21D27F0031D99A /* Build configuration list for PBXNativeTarget "GoTrip - Planner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76744A222C21D27F0031D99A /* Debug */,
