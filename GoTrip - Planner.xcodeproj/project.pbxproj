@@ -171,7 +171,7 @@
 		76744A082C21D27E0031D99A = {
 			isa = PBXGroup;
 			children = (
-				76744A132C21D27E0031D99A /* MyTravel */,
+				76744A132C21D27E0031D99A /* GoTrip - Planner */,
 				76744A122C21D27E0031D99A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		76744A132C21D27E0031D99A /* MyTravel */ = {
+		76744A132C21D27E0031D99A /* GoTrip - Planner */ = {
 			isa = PBXGroup;
 			children = (
 				76744A142C21D27E0031D99A /* MyTravelApp.swift */,
@@ -200,7 +200,7 @@
 				762AD6F92C22C79C00118943 /* Views */,
 				7631FE812C2AFABC00055FA2 /* AppIcons */,
 			);
-			path = MyTravel;
+			path = "GoTrip - Planner";
 			sourceTree = "<group>";
 		};
 		76744A1C2C21D27F0031D99A /* Preview Content */ = {
@@ -572,11 +572,11 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MyTravel/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"GoTrip - Planner/Preview Content\"";
 				DEVELOPMENT_TEAM = 457HW9WV33;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyTravel/Info.plist;
+				INFOPLIST_FILE = "GoTrip - Planner/Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need to know your location so you can plan your routes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -609,11 +609,11 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MyTravel/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"GoTrip - Planner/Preview Content\"";
 				DEVELOPMENT_TEAM = 457HW9WV33;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyTravel/Info.plist;
+				INFOPLIST_FILE = "GoTrip - Planner/Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need to know your location so you can plan your routes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
