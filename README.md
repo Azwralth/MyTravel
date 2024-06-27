@@ -1,3 +1,18 @@
+# Update 
+
+* The app on the App Store - https://apps.apple.com/at/app/gotrip-planner/id6504802309
+* Removed the ability to add and share photos
+* Modified the Note and Trips tables, they now span the full width of the screen
+* Added currency to Trips
+
+## Screenshots
+
+<img src="https://github.com/Azwralth/MyTravel/assets/129508082/0b0dca4b-6727-4344-be81-87fdef76d595" width="300">
+<img src="https://github.com/Azwralth/MyTravel/assets/129508082/9874e57d-33b5-44f5-a2f6-f51e60a5fd59" width="300">
+<img src="https://github.com/Azwralth/MyTravel/assets/129508082/3dfc7800-bfb6-4780-9a01-93d8551b1cb6" width="300">
+<img src="https://github.com/Azwralth/MyTravel/assets/129508082/6b7809ff-b9b1-4d66-8514-21fe9219b7b2" width="300">
+
+
 # Note-Taking and Travel Planning Application
 
 This application allows you to create notes with a topic, deadline, and image. You can also easily share images with others.
