@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		760D50552C2DA7E200A8B4BF /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760D50542C2DA7E200A8B4BF /* DataStore.swift */; };
 		762ACCD62C263F2B00D947AC /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762ACCD52C263F2B00D947AC /* EditNoteView.swift */; };
 		762AD6F82C22C75800118943 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762AD6F72C22C75800118943 /* CustomTextField.swift */; };
 		762AD6FB2C22D8AD00118943 /* ExpenseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */; };
 		7631FE822C2AFABC00055FA2 /* appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 7631FE7E2C2AFABC00055FA2 /* appstore.png */; };
 		7631FE832C2AFABC00055FA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7631FE7F2C2AFABC00055FA2 /* Assets.xcassets */; };
 		7631FE842C2AFABC00055FA2 /* playstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 7631FE802C2AFABC00055FA2 /* playstore.png */; };
-		763D3F6F2C25822C004F2A4B /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D3F6E2C25822C004F2A4B /* ShareSheet.swift */; };
 		764CD1352C23A77700A188C6 /* DefaultContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764CD1342C23A77700A188C6 /* DefaultContentView.swift */; };
 		7664F41B2C24BC8F004BEBF3 /* EditTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */; };
 		76744A152C21D27E0031D99A /* MyTravelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A142C21D27E0031D99A /* MyTravelApp.swift */; };
@@ -28,7 +28,6 @@
 		76744A352C21D3330031D99A /* DetailNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A342C21D3330031D99A /* DetailNoteView.swift */; };
 		76744A3B2C21D3680031D99A /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A3A2C21D3680031D99A /* Note.swift */; };
 		76744A3D2C21D37A0031D99A /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A3C2C21D37A0031D99A /* Trip.swift */; };
-		76744A3F2C21D3920031D99A /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A3E2C21D3920031D99A /* Extension + View.swift */; };
 		76AD393E2C21DE0A0035CE98 /* CreateTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD393D2C21DE0A0035CE98 /* CreateTripView.swift */; };
 		76AD39402C21DED90035CE98 /* DetailTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD393F2C21DED90035CE98 /* DetailTripView.swift */; };
 		76B81E4B2C232AC2003B9B20 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B81E4A2C232AC2003B9B20 /* Destination.swift */; };
@@ -48,13 +47,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		760D50542C2DA7E200A8B4BF /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		762ACCD52C263F2B00D947AC /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
 		762AD6F72C22C75800118943 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		762AD6FA2C22D8AD00118943 /* ExpenseCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCellView.swift; sourceTree = "<group>"; };
 		7631FE7E2C2AFABC00055FA2 /* appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appstore.png; sourceTree = "<group>"; };
 		7631FE7F2C2AFABC00055FA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7631FE802C2AFABC00055FA2 /* playstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playstore.png; sourceTree = "<group>"; };
-		763D3F6E2C25822C004F2A4B /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		764CD1342C23A77700A188C6 /* DefaultContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultContentView.swift; sourceTree = "<group>"; };
 		7664F41A2C24BC8F004BEBF3 /* EditTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripView.swift; sourceTree = "<group>"; };
 		76744A112C21D27E0031D99A /* GoTrip - Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GoTrip - Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,7 +69,6 @@
 		76744A342C21D3330031D99A /* DetailNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoteView.swift; sourceTree = "<group>"; };
 		76744A3A2C21D3680031D99A /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		76744A3C2C21D37A0031D99A /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
-		76744A3E2C21D3920031D99A /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
 		76AD393D2C21DE0A0035CE98 /* CreateTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripView.swift; sourceTree = "<group>"; };
 		76AD393F2C21DED90035CE98 /* DetailTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTripView.swift; sourceTree = "<group>"; };
 		76B81E4A2C232AC2003B9B20 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 			children = (
 				762AD6F72C22C75800118943 /* CustomTextField.swift */,
 				764CD1342C23A77700A188C6 /* DefaultContentView.swift */,
-				763D3F6E2C25822C004F2A4B /* ShareSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,7 +222,6 @@
 		76744A412C21D4410031D99A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				76744A3E2C21D3920031D99A /* Extension + View.swift */,
 				76744A322C21D3230031D99A /* CustomColors.swift */,
 				76EFA2112C26E0FC00FF209A /* Extension + Date.swift */,
 			);
@@ -262,6 +258,7 @@
 			children = (
 				76B81E4F2C232B99003B9B20 /* LocationManager.swift */,
 				76B81E512C232BAE003B9B20 /* MapManager.swift */,
+				760D50542C2DA7E200A8B4BF /* DataStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -405,6 +402,7 @@
 				76AD39402C21DED90035CE98 /* DetailTripView.swift in Sources */,
 				76B81E572C232C11003B9B20 /* DestinationLocationsMapView.swift in Sources */,
 				76744A272C21D2BD0031D99A /* TripView.swift in Sources */,
+				760D50552C2DA7E200A8B4BF /* DataStore.swift in Sources */,
 				762AD6FB2C22D8AD00118943 /* ExpenseCellView.swift in Sources */,
 				76B81E522C232BAE003B9B20 /* MapManager.swift in Sources */,
 				76B81E552C232BFA003B9B20 /* DestinationsListView.swift in Sources */,
@@ -414,7 +412,6 @@
 				762ACCD62C263F2B00D947AC /* EditNoteView.swift in Sources */,
 				76EFA2172C26E48700FF209A /* DetailNoteViewModel.swift in Sources */,
 				76744A3D2C21D37A0031D99A /* Trip.swift in Sources */,
-				763D3F6F2C25822C004F2A4B /* ShareSheet.swift in Sources */,
 				76B81E502C232B99003B9B20 /* LocationManager.swift in Sources */,
 				7664F41B2C24BC8F004BEBF3 /* EditTripView.swift in Sources */,
 				76EFA21A2C26EBEA00FF209A /* CreateNoteViewModel.swift in Sources */,
@@ -423,7 +420,6 @@
 				76744A252C21D2A30031D99A /* MainView.swift in Sources */,
 				76744A3B2C21D3680031D99A /* Note.swift in Sources */,
 				76744A332C21D3230031D99A /* CustomColors.swift in Sources */,
-				76744A3F2C21D3920031D99A /* Extension + View.swift in Sources */,
 				76EFA2142C26E28200FF209A /* NoteCellViewModel.swift in Sources */,
 				76744A152C21D27E0031D99A /* MyTravelApp.swift in Sources */,
 				76744A352C21D3330031D99A /* DetailNoteView.swift in Sources */,
@@ -588,7 +584,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = home.GoTripPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -625,7 +621,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = home.GoTripPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

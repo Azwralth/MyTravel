@@ -19,7 +19,7 @@ struct TripCellView: View {
             CustomColors.customBlue
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Budget - \(trip.budget.formatted())")
+                    Text("Budget - \(trip.budget.formatted()) \(trip.currency)")
                         .padding(.horizontal, 10)
                         .padding(.vertical, 5)
                         .background(.blue)
@@ -51,5 +51,5 @@ struct TripCellView: View {
 
 
 #Preview {
-    TripCellView(trip: Trip(name: "Франция", startDate: .now, endDate: .distantFuture, expense: [Expense(name: "coffe", expense: 12, date: .now)], budget: 3000))
+    TripCellView(trip: Trip(name: "Франция", startDate: .now, endDate: .distantFuture, expense: [Expense(name: "coffe", expense: 12, date: .now)], budget: 3000, currency: "USD"))
 }

@@ -15,9 +15,11 @@ struct DetailTripView: View {
     @State private var expenseName = ""
     @State private var expenseAmount = ""
     @State private var expenseDate = Date()
-    @State private var expenseToDelete: Expense?
+    @State private var expenseToDelete: Expense? = nil
     
     @State private var trip: Trip
+    
+    let defaultCurrency = "USD"
     
     init(trip: Trip) {
         self.trip = trip
@@ -38,7 +40,7 @@ struct DetailTripView: View {
                     .foregroundColor(.white)
                     .cornerRadius(16)
                 HStack(alignment: .firstTextBaseline, spacing: 0) {
-                    Text("Budget - \(trip.budget.formatted())")
+                    Text("Budget - \(trip.budget.formatted()) \(trip.currency)")
                         .foregroundStyle(.white)
                         .font(.largeTitle)
                     Spacer()
@@ -51,7 +53,7 @@ struct DetailTripView: View {
                 
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 190, maximum: 250)), GridItem(.adaptive(minimum: 190, maximum: 250))], spacing: 8) {
-                        ForEach(trip.expense ?? []) { expense in
+                        ForEach(trip.expense) { expense in
                             ExpenseCellView(expense: expense) {
                                 expenseToDelete = expense
                                 showingDeleteExpenseAlert.toggle()
@@ -61,13 +63,13 @@ struct DetailTripView: View {
                 }
                 .alert(isPresented: $showingDeleteExpenseAlert) {
                     Alert(
-                        title: Text("Удалить расход?"),
-                        primaryButton: .destructive(Text("Удалить")) {
+                        title: Text("Delete expense?"),
+                        primaryButton: .destructive(Text("Delete")) {
                             if let expense = expenseToDelete {
                                 deleteExpense(expense)
                             }
                         },
-                        secondaryButton: .cancel(Text("Отмена"))
+                        secondaryButton: .cancel(Text("Cancel"))
                     )
                 }
                 .scrollIndicators(.hidden)
@@ -115,8 +117,8 @@ struct DetailTripView: View {
     
     private func currentBalanceTrip() -> String {
         let totalBudget = trip.budget
-        let totalExpenses = trip.expense?.reduce(0.0) { $0 + $1.expense }
-        let currentBalance = totalBudget - (totalExpenses ?? 0)
+        let totalExpenses = trip.expense.reduce(0.0) { $0 + $1.expense }
+        let currentBalance = totalBudget - (totalExpenses)
         return String(format: "%.2f", currentBalance)
     }
     
@@ -124,32 +126,22 @@ struct DetailTripView: View {
         withAnimation {
             guard let amount = Double(expenseAmount) else { return }
             let newExpense = Expense(name: expenseName, expense: amount, date: Date())
-            trip.expense?.append(newExpense)
+            trip.expense.append(newExpense)
             expenseName = ""
             expenseAmount = ""
-            saveContext()
         }
     }
     
     private func deleteExpense(_ expense: Expense) {
         withAnimation {
-            if let index = trip.expense?.firstIndex(of: expense) {
-                trip.expense?.remove(at: index)
+            if let index = trip.expense.firstIndex(of: expense) {
+                trip.expense.remove(at: index)
                 modelContext.delete(expense)
-                saveContext()
             }
-        }
-    }
-    
-    private func saveContext() {
-        do {
-            try modelContext.save()
-        } catch {
-            print("Ошибка при сохранении контекста: \(error)")
         }
     }
 }
 
 #Preview {
-    DetailTripView(trip: Trip(name: "Франция", startDate: .now, endDate: .distantFuture, expense: [Expense(name: "coffe", expense: 4, date: .now)], budget: 3000))
+    DetailTripView(trip: Trip(name: "Франция", startDate: .now, endDate: .distantFuture, expense: [Expense(name: "coffe", expense: 4, date: .now)], budget: 3000, currency: "USD"))
 }

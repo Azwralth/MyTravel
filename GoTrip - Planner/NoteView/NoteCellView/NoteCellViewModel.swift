@@ -35,17 +35,15 @@ final class NoteCellViewModel: ObservableObject {
     func daysWord() -> String {
         let days = daysLeft()
         if days < 0 {
-            return "дедлайн истек"
+            return "Deadline has passed"
         } else {
             switch days {
             case 0:
-                return "сегодня дедлайн"
+                return "Deadline is today"
             case 1:
-                return "\(daysLeft()) день до дедлайна"
-            case 2...4:
-                return "\(daysLeft()) дня до дедлайна"
+                return "\(daysLeft()) day until the deadline"
             default:
-                return "\(daysLeft()) дней до дедлайна"
+                return "\(daysLeft()) days until the deadline"
             }
         }
     }

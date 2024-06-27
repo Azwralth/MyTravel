@@ -12,6 +12,7 @@ struct TripView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var trips: [Trip]
     @State private var showCreateTripView = false
+    @State private var selectedTrip: Trip? = nil
     
     var body: some View {
         NavigationStack {
@@ -19,12 +20,11 @@ struct TripView: View {
                 if !trips.isEmpty {
                     List {
                         ForEach(trips) { trip in
-                            NavigationLink {
-                                DetailTripView(trip: trip)
+                            Button {
+                                selectedTrip = trip
                             } label: {
                                 TripCellView(trip: trip)
                             }
-                            .listRowSeparator(.hidden)
                             .listRowBackground(CustomColors.darkBlue)
                             .listRowInsets(EdgeInsets())
                             .swipeActions(edge: .trailing) {
@@ -58,6 +58,9 @@ struct TripView: View {
                         Image(systemName: "plus.circle.fill")
                     }
                 }
+            }
+            .navigationDestination(item: $selectedTrip) { trip in
+                DetailTripView(trip: trip)
             }
         }
         .fullScreenCover(isPresented: $showCreateTripView) {

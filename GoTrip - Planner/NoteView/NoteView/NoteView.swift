@@ -10,6 +10,7 @@ import SwiftData
 
 struct NoteView: View {
     @StateObject var viewModel: NoteViewModel
+    
     @Environment(\.modelContext) private var modelContext
     @Query private var notes: [Note]
     
@@ -27,12 +28,11 @@ struct NoteView: View {
                 if !notes.isEmpty {
                     List {
                         ForEach(sortedNotes) { note in
-                            NavigationLink {
-                                DetailNoteView(note: note)
+                            Button {
+                                viewModel.selectedNote = note
                             } label: {
                                 NoteCellView(note: note)
                             }
-                            .listRowSeparator(.hidden)
                             .listRowBackground(CustomColors.darkBlue)
                             .listRowInsets(EdgeInsets())
                             .swipeActions(edge: .trailing) {
@@ -74,6 +74,9 @@ struct NoteView: View {
                         Image(systemName: "plus.circle.fill")
                     }
                 }
+            }
+            .navigationDestination(item: $viewModel.selectedNote) { note in
+                DetailNoteView(note: note)
             }
             .fullScreenCover(isPresented: $viewModel.showCreateNoteView) {
                 CreateNoteView()

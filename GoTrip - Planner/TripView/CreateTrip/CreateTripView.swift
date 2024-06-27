@@ -16,119 +16,97 @@ struct CreateTripView: View {
     @State private var startDate = Date()
     @State private var endDate = Date()
     @State private var isValid = false
+    @State private var currency = "USD"
     @State private var showingStartDatePicker = false
     @State private var showingEndDatePicker = false
-    
-    let rows: [GridItem] = [
-        GridItem(.fixed(20))
-    ]
+    @State private var showingDataRangePicker = false
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                VStack {
-                    CustomTextField(text: $name, field: "Name")
-                        .onChange(of: name) { _, newValue in
-                            isValid = !newValue.isEmpty && !budget.isEmpty
+        GeometryReader { geometry in
+            NavigationStack {
+                ScrollView {
+                    VStack(spacing: 7) {
+                        CustomTextField(text: $name, field: "Name")
+                            .onChange(of: name) { _, newValue in
+                                isValid = !newValue.isEmpty && !budget.isEmpty
+                            }
+                            .padding(.horizontal)
+                        
+                        HStack {
+                            CustomTextField(text: $budget, field: "Budget")
+                                .onChange(of: budget) { _, newValue in
+                                    isValid = !newValue.isEmpty && !name.isEmpty
+                                }
+                                .keyboardType(.numberPad)
+                                .padding(.horizontal)
+                                .padding(.trailing, -30)
+                            
+                            Picker("Currency", selection: $currency) {
+                                ForEach(DataStore.shared.getAllCurrncies(), id: \.self) { currency in
+                                    Text(currency).tag(currency)
+                                }
+                            }
+                            .frame(width: geometry.size.width / 3)
+                            .frame(minHeight: 65)
+                            .overlay(RoundedRectangle(cornerRadius: 20).stroke(.gray, lineWidth: 1))
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
-                        .padding(.bottom, 90)
-                        .minimumScaleFactor(0.8)
-                    
-                    CustomTextField(text: $budget, field: "Budget")
-                        .onChange(of: budget) { _, newValue in
-                            isValid = !newValue.isEmpty && !name.isEmpty
-                        }
-                        .keyboardType(.numberPad)
-                        .padding(.horizontal)
-                        .padding(.top, -95)
-                    
-                    Group {
-                        Button(action: {
-                            showingStartDatePicker.toggle()
-                        }) {
-                            HStack {
-                                Text("Start Date: \(startDate, formatter: dateFormatter)")
+                        
+                        Group {
+                            Button(action: {
+                                showingDataRangePicker.toggle()
+                            }) {
+                                HStack {
+                                    Text("\(startDate, formatter: dateFormatter) - \(endDate, formatter: dateFormatter)")
+                                        .frame(
+                                            width: geometry.size.width / 1.4,
+                                            height: 65,
+                                            alignment: .leading
+                                        )
                                     .foregroundStyle(.gray)
-                                Spacer()
-                                Image(systemName: "calendar")
-                                    .foregroundStyle(.gray)
-                                    .padding()
+                                    Image(systemName: "calendar")
+                                        .foregroundStyle(.gray)
+                                        .padding()
+                                }
                             }
                         }
+                        .padding(.leading, 20)
+                        .frame(minHeight: 65)
+                        .overlay(RoundedRectangle(cornerRadius: 20).stroke(.gray, lineWidth: 1))
+                        .padding(.horizontal)
+                        
                         Button(action: {
-                            showingEndDatePicker.toggle()
-                        }) {
-                            HStack {
-                                Text("End Date: \(endDate, formatter: dateFormatter)")
-                                    .foregroundStyle(.gray)
-                                Spacer()
-                                Image(systemName: "calendar")
-                                    .foregroundStyle(.gray)
-                                    .padding()
+                            if let budgetValue = Double(budget) {
+                                let newTrip = Trip(name: name, startDate: startDate, endDate: endDate, expense: [], budget: budgetValue, currency: currency)
+                                modelContext.insert(newTrip)
+                                presentationMode.wrappedValue.dismiss()
                             }
+                        }) {
+                            Text("Add")
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .foregroundColor(.white)
                         }
+                        .background(.blue)
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .opacity(!isValid ? 0.3 : 1)
+                        .disabled(!isValid)
+                        .padding()
                     }
-                    .padding(.leading, 20)
-                    .frame(minHeight: 65)
-                    .background(CustomColors.darkBlue)
-                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray, lineWidth: 1))
-                    .padding(.horizontal)
-                    .padding(.bottom, 25)
-                    .padding(.top, -20)
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        if let budgetValue = Double(budget) {
-                            let newTrip = Trip(name: name, startDate: startDate, endDate: endDate, budget: budgetValue)
-                            modelContext.insert(newTrip)
+                    .padding(.top, 10)
+                }
+                .background(CustomColors.darkBlue)
+                .navigationTitle("New Trip")
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button("Close") {
                             presentationMode.wrappedValue.dismiss()
                         }
-                    }) {
-                        Text("Add")
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical)
-                    .background(.blue)
-                    .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                    .opacity(!isValid ? 0.3 : 1)
-                    .disabled(!isValid)
-                    .padding()
-                }
-            }
-            .background(CustomColors.darkBlue)
-            .navigationTitle("New Trip")
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Close") {
-                        presentationMode.wrappedValue.dismiss()
                     }
                 }
-            }
-            .sheet(isPresented: $showingStartDatePicker) {
-                VStack {
-                    DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
-                        .datePickerStyle(GraphicalDatePickerStyle())
-                        .padding()
-                    Button("Done") {
-                        showingStartDatePicker.toggle()
-                        validateForm()
-                    }
-                    .padding()
-                }
-            }
-            .sheet(isPresented: $showingEndDatePicker) {
-                VStack {
-                    DatePicker("End Date", selection: $endDate, displayedComponents: .date)
-                        .datePickerStyle(GraphicalDatePickerStyle())
-                        .padding()
-                    Button("Done") {
-                        showingEndDatePicker.toggle()
-                        validateForm()
-                    }
-                    .padding()
+                .sheet(isPresented: $showingDataRangePicker) {
+                    DateRangePickerView(startDate: $startDate, endDate: $endDate)
+                        .presentationDetents([.height(600)])
                 }
             }
         }
@@ -146,6 +124,44 @@ struct CreateTripView: View {
         } else {
             isValid = false
         }
+    }
+}
+
+struct DateRangePickerView: View {
+    @Binding var startDate: Date
+    @Binding var endDate: Date
+    @Environment(\.presentationMode) var presentationMode
+    @State private var isSelectingStartDate = true
+    
+    var body: some View {
+        VStack {
+            if isSelectingStartDate {
+                Text("Start Date")
+                    .font(.title)
+                
+                DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
+                    .datePickerStyle(GraphicalDatePickerStyle())
+                    .padding()
+                Button("Next") {
+                    withAnimation {
+                        isSelectingStartDate.toggle()
+                    }
+                }
+                .padding()
+            } else {
+                Text("End Date")
+                    .font(.title)
+                
+                DatePicker("End Date", selection: $endDate, displayedComponents: .date)
+                    .datePickerStyle(GraphicalDatePickerStyle())
+                    .padding()
+                Button("Done") {
+                    presentationMode.wrappedValue.dismiss()
+                }
+                .padding()
+            }
+        }
+        .padding()
     }
 }
 
