@@ -11,6 +11,7 @@ import PhotosUI
 struct CreateNoteView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.presentationMode) private var presentationMode
+    @EnvironmentObject var lnManager: LocalNotificationManager
     
     @StateObject private var viewModel = CreateNoteViewModel()
     
@@ -52,19 +53,20 @@ struct CreateNoteView: View {
                         .scrollIndicators(.hidden)
                         
                         CustomTextField(text: $viewModel.detail, field: "Detail")
-                            .onChange(of: viewModel.detail) { _, newValue in
-                                viewModel.updateValidity()
-                            }
                             .padding(.horizontal)
                         
-                        Button(action: viewModel.showDeadLinePicker) {
+                        
+                        Group {
                             HStack {
-                                Text("Deadline: \(viewModel.deadline, formatter: viewModel.dateFormatter)")
+                                Text("Deadline:")
                                     .foregroundStyle(.gray)
                                 Spacer()
-                                Image(systemName: "calendar")
-                                    .foregroundStyle(.gray)
-                                    .padding()
+                                if lnManager.isGranted {
+                                    DatePicker("", selection: $viewModel.deadline)
+                                        .colorScheme(.dark)
+                                        .padding(.trailing, 10)
+                                        .tint(.white)
+                                }
                             }
                         }
                         .padding(.leading, 20)
@@ -72,15 +74,24 @@ struct CreateNoteView: View {
                         .background(CustomColors.darkBlue)
                         .overlay(RoundedRectangle(cornerRadius: 20).stroke(.gray, lineWidth: 1))
                         .padding(.horizontal)
-//                        .padding(.bottom, 10)
                         
                         Spacer()
                         
                         Button(action: {
+                            Task {
+                                let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: viewModel.deadline)
+                                let localNotification = LocalNotification(
+                                    identifier: UUID().uuidString,
+                                    title: viewModel.name,
+                                    body: "Deadline now",
+                                    dateComponents: dateComponents,
+                                    repeats: false
+                                )
+                                await lnManager.schedule(localNotification: localNotification)
+                            }
                             viewModel.saveNote(modelContext: modelContext, presentationMode: presentationMode)
                         }) {
                             Text("Add")
-//                                .font(.headline)
                                 .frame(maxWidth: .infinity)
                                 .padding()
                                 .foregroundColor(.white)
@@ -103,23 +114,15 @@ struct CreateNoteView: View {
                         }
                     }
                 }
-                .sheet(isPresented: $viewModel.isShowDeadlinePicker) {
-                    VStack {
-                        DatePicker("Deadline", selection: $viewModel.deadline, displayedComponents: .date)
-                            .datePickerStyle(GraphicalDatePickerStyle())
-                            .padding()
-                        Button("Done") {
-                            viewModel.showDeadLinePicker()
-                        }
-                        .padding()
-                    }
+                .task {
+                    try? await lnManager.requestAuthorization()
                 }
             }
         }
     }
-
 }
 
 #Preview {
     CreateNoteView()
+        .environmentObject(LocalNotificationManager())
 }

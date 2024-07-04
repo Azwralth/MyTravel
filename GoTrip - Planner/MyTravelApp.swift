@@ -11,6 +11,7 @@ import SwiftData
 @main
 struct MyTravelApp: App {
     @State private var locationManager = LocationManager()
+    @StateObject var lnManager = LocalNotificationManager()
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Note.self,
@@ -29,9 +30,9 @@ struct MyTravelApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(lnManager)
         }
         .modelContainer(sharedModelContainer)
-        .environment(locationManager)
     }
     
     init() {

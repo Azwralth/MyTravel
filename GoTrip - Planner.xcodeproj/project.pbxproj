@@ -28,6 +28,8 @@
 		76744A352C21D3330031D99A /* DetailNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A342C21D3330031D99A /* DetailNoteView.swift */; };
 		76744A3B2C21D3680031D99A /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A3A2C21D3680031D99A /* Note.swift */; };
 		76744A3D2C21D37A0031D99A /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76744A3C2C21D37A0031D99A /* Trip.swift */; };
+		7674DDAC2C31B662000CCEA0 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674DDAB2C31B662000CCEA0 /* LocalNotificationManager.swift */; };
+		768D6A9B2C35CBD3009BF25A /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768D6A9A2C35CBD3009BF25A /* LocalNotification.swift */; };
 		76AD393E2C21DE0A0035CE98 /* CreateTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD393D2C21DE0A0035CE98 /* CreateTripView.swift */; };
 		76AD39402C21DED90035CE98 /* DetailTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD393F2C21DED90035CE98 /* DetailTripView.swift */; };
 		76B81E4B2C232AC2003B9B20 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B81E4A2C232AC2003B9B20 /* Destination.swift */; };
@@ -38,6 +40,7 @@
 		76B81E572C232C11003B9B20 /* DestinationLocationsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B81E562C232C11003B9B20 /* DestinationLocationsMapView.swift */; };
 		76B81E5A2C232C93003B9B20 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B81E592C232C93003B9B20 /* LocationDetailView.swift */; };
 		76B81E5E2C234C27003B9B20 /* DestinationCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B81E5D2C234C27003B9B20 /* DestinationCellView.swift */; };
+		76B891AA2C36FFBE00F009AD /* DateRangePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B891A92C36FFBE00F009AD /* DateRangePickerView.swift */; };
 		76EFA2122C26E0FC00FF209A /* Extension + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFA2112C26E0FC00FF209A /* Extension + Date.swift */; };
 		76EFA2142C26E28200FF209A /* NoteCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFA2132C26E28200FF209A /* NoteCellViewModel.swift */; };
 		76EFA2172C26E48700FF209A /* DetailNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFA2162C26E48700FF209A /* DetailNoteViewModel.swift */; };
@@ -69,6 +72,8 @@
 		76744A342C21D3330031D99A /* DetailNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoteView.swift; sourceTree = "<group>"; };
 		76744A3A2C21D3680031D99A /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		76744A3C2C21D37A0031D99A /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		7674DDAB2C31B662000CCEA0 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		768D6A9A2C35CBD3009BF25A /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		76AD393D2C21DE0A0035CE98 /* CreateTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripView.swift; sourceTree = "<group>"; };
 		76AD393F2C21DED90035CE98 /* DetailTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTripView.swift; sourceTree = "<group>"; };
 		76B81E4A2C232AC2003B9B20 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
@@ -79,6 +84,7 @@
 		76B81E562C232C11003B9B20 /* DestinationLocationsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationLocationsMapView.swift; sourceTree = "<group>"; };
 		76B81E592C232C93003B9B20 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 		76B81E5D2C234C27003B9B20 /* DestinationCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCellView.swift; sourceTree = "<group>"; };
+		76B891A92C36FFBE00F009AD /* DateRangePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangePickerView.swift; sourceTree = "<group>"; };
 		76EFA2112C26E0FC00FF209A /* Extension + Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Date.swift"; sourceTree = "<group>"; };
 		76EFA2132C26E28200FF209A /* NoteCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCellViewModel.swift; sourceTree = "<group>"; };
 		76EFA2162C26E48700FF209A /* DetailNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoteViewModel.swift; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 			children = (
 				762AD6F72C22C75800118943 /* CustomTextField.swift */,
 				764CD1342C23A77700A188C6 /* DefaultContentView.swift */,
+				76B891A92C36FFBE00F009AD /* DateRangePickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +222,7 @@
 				76744A3C2C21D37A0031D99A /* Trip.swift */,
 				76B81E4A2C232AC2003B9B20 /* Destination.swift */,
 				76B81E4C2C232AE3003B9B20 /* MTPlacemark.swift */,
+				768D6A9A2C35CBD3009BF25A /* LocalNotification.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +267,7 @@
 				76B81E4F2C232B99003B9B20 /* LocationManager.swift */,
 				76B81E512C232BAE003B9B20 /* MapManager.swift */,
 				760D50542C2DA7E200A8B4BF /* DataStore.swift */,
+				7674DDAB2C31B662000CCEA0 /* LocalNotificationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -416,6 +425,8 @@
 				7664F41B2C24BC8F004BEBF3 /* EditTripView.swift in Sources */,
 				76EFA21A2C26EBEA00FF209A /* CreateNoteViewModel.swift in Sources */,
 				76EFA2202C26F11D00FF209A /* EditNoteViewModel.swift in Sources */,
+				768D6A9B2C35CBD3009BF25A /* LocalNotification.swift in Sources */,
+				7674DDAC2C31B662000CCEA0 /* LocalNotificationManager.swift in Sources */,
 				76B81E4D2C232AE3003B9B20 /* MTPlacemark.swift in Sources */,
 				76744A252C21D2A30031D99A /* MainView.swift in Sources */,
 				76744A3B2C21D3680031D99A /* Note.swift in Sources */,
@@ -428,6 +439,7 @@
 				762AD6F82C22C75800118943 /* CustomTextField.swift in Sources */,
 				76744A2B2C21D2DD0031D99A /* NoteView.swift in Sources */,
 				76744A2D2C21D2EC0031D99A /* NoteCellView.swift in Sources */,
+				76B891AA2C36FFBE00F009AD /* DateRangePickerView.swift in Sources */,
 				76744A292C21D2CB0031D99A /* TripCellView.swift in Sources */,
 				76B81E4B2C232AC2003B9B20 /* Destination.swift in Sources */,
 				76EFA2122C26E0FC00FF209A /* Extension + Date.swift in Sources */,
@@ -566,6 +578,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "GoTrip - Planner/GoTrip - Planner.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GoTrip - Planner/Preview Content\"";
@@ -603,6 +616,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "GoTrip - Planner/GoTrip - Planner.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GoTrip - Planner/Preview Content\"";

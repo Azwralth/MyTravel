@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import _PhotosUI_SwiftUI
 
 final class EditNoteViewModel: ObservableObject {
     @Published var isValid = false

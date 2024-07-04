@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import PhotosUI
 import SwiftData
 
 class CreateNoteViewModel: ObservableObject {
@@ -26,7 +25,7 @@ class CreateNoteViewModel: ObservableObject {
     }
     
     func updateValidity() {
-        isValid = !name.isEmpty && !detail.isEmpty
+        isValid = !name.isEmpty
     }
     
     func saveNote(modelContext: ModelContext, presentationMode: Binding<PresentationMode>) {

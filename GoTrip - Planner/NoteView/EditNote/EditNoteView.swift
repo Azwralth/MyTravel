@@ -10,8 +10,10 @@ import SwiftUI
 struct EditNoteView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.presentationMode) private var presentationMode
+    @EnvironmentObject var lnManager: LocalNotificationManager
     
     @StateObject var viewModel = EditNoteViewModel()
+    
     @State private var isValid = false
     @State private var showingDeadlinePicker = false
     
@@ -59,22 +61,16 @@ struct EditNoteView: View {
                         .scrollIndicators(.hidden)
                         
                         CustomTextField(text: $note.detail, field: "Detail")
-                            .onChange(of: note.detail) { _, newValue in
-                                isValid = !newValue.isEmpty && !note.name.isEmpty
-                            }
                             .padding(.horizontal)
                         
-                        Button(action: {
-                            showingDeadlinePicker.toggle()
-                        }) {
-                            HStack {
-                                Text("Deadline: \(note.deadline, formatter: viewModel.dateFormatter)")
-                                    .foregroundStyle(.gray)
-                                Spacer()
-                                Image(systemName: "calendar")
-                                    .foregroundStyle(.gray)
-                                    .padding()
-                            }
+                        HStack {
+                            Text("Deadline:")
+                                .foregroundStyle(.gray)
+                            Spacer()
+                                DatePicker("", selection: $note.deadline)
+                                    .colorScheme(.dark)
+                                    .padding(.trailing, 10)
+                                    .tint(.white)
                         }
                         .padding(.leading, 20)
                         .frame(minHeight: 65)
@@ -83,6 +79,30 @@ struct EditNoteView: View {
                         .padding(.horizontal)
                         
                         Spacer()
+                        
+                        Button(action: {
+                            lnManager.clearRequests()
+                            Task {
+                                let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: note.deadline)
+                                let localNotification = LocalNotification(
+                                    identifier: UUID().uuidString,
+                                    title: note.name,
+                                    body: "Deadline now",
+                                    dateComponents: dateComponents,
+                                    repeats: false
+                                )
+                                await lnManager.schedule(localNotification: localNotification)
+                            }
+                        }) {
+                            Text("Set new Deadline")
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .foregroundColor(.white)
+                        }
+                        .background(.blue)
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .padding()
+                        .padding(.top, -15)
                         
                     }
                     .navigationTitle("Edit Note")
@@ -94,17 +114,6 @@ struct EditNoteView: View {
                             }
                         }
                     }
-                    .sheet(isPresented: $showingDeadlinePicker) {
-                        VStack {
-                            DatePicker("Deadline", selection: $note.deadline, displayedComponents: .date)
-                                .datePickerStyle(GraphicalDatePickerStyle())
-                                .padding()
-                            Button("Done") {
-                                showingDeadlinePicker.toggle()
-                            }
-                            .padding()
-                        }
-                    }
                 }
                 .background(.darkBlue)
             }
@@ -114,5 +123,6 @@ struct EditNoteView: View {
 
 #Preview {
     EditNoteView(note: .constant(Note(name: "Страховка", detail: "Сделать страховку онлайн", annotation: .hotel, date: .now, deadline: .now)))
+        .environmentObject(LocalNotificationManager())
 }
 
