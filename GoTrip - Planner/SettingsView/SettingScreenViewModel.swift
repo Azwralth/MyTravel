@@ -45,13 +45,15 @@ final class SettingScreenViewModel: ObservableObject {
     }
     
     func resetProgress() {
+        let modelsToDelete: [any PersistentModel.Type] = [Trip.self, Note.self, Destination.self, MTPlacemark.self]
+        
         do {
-            try modelContext.delete(model: Trip.self)
-            try modelContext.delete(model: Note.self)
-            try modelContext.delete(model: Destination.self)
-            try modelContext.delete(model: MTPlacemark.self)
+            for model in modelsToDelete {
+                try modelContext.delete(model: model)
+            }
+            print("All data successfully deleted.")
         } catch {
-            print("Failed to delete all schools.")
+            print("Failed to delete all data.")
         }
     }
 }
