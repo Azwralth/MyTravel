@@ -28,6 +28,12 @@ struct MainView: View {
                         Image(systemName: "globe")
                         Text("Places")
                     }
+                
+                SettingScreenView()
+                    .tabItem {
+                        Image(systemName: "gearshape")
+                        Text("Settings")
+                    }
             }
             .toolbarBackground(.visible, for: .tabBar)
             .toolbarBackground(CustomColors.darkBlue.opacity(0.8), for: .tabBar)

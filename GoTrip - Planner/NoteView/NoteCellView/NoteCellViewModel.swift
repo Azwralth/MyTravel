@@ -5,7 +5,6 @@
 //  Created by Владислав Соколов on 22.06.2024.
 //
 
-import Foundation
 import SwiftUI
 
 final class NoteCellViewModel: ObservableObject {

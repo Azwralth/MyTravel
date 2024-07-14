@@ -16,7 +16,6 @@ struct NoteCellView: View {
     
     var body: some View {
         ZStack {
-            CustomColors.customBlue
             VStack(alignment: .leading) {
                 HStack {
                     Text(viewModel.title)
@@ -53,6 +52,7 @@ struct NoteCellView: View {
             }
             .padding(.horizontal, 7)
         }
+        .background(CustomColors.customBlue)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
 }

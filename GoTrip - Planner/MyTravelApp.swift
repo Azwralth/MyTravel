@@ -12,6 +12,7 @@ import SwiftData
 struct MyTravelApp: App {
     @State private var locationManager = LocationManager()
     @StateObject var lnManager = LocalNotificationManager()
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Note.self,
