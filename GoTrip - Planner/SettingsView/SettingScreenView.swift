@@ -46,7 +46,7 @@ struct SettingScreenView: View {
             }
             .background(CustomColors.darkBlue)
             .navigationTitle("Settings")
-            .alert("Reset All Data?", isPresented: $showingResetAlert) {
+            .alert("Reset All Data", isPresented: $showingResetAlert) {
                 Button("Cancel", role: .cancel) {}
                 Button("Reset", role: .destructive) {
                     if let icon = selectedIcon {
@@ -55,7 +55,7 @@ struct SettingScreenView: View {
                     }
                 }
             } message: {
-                Text("Are you sure you want to reset all your progress? This action cannot be undone.")
+                Text("Are you sure you want to reset all your progress?")
             }
         }
     }
